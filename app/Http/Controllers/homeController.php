@@ -3,21 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\category;
-use App\Http\Controllers\Controller;
 
-class homeController extends Controller
+class HomeController extends Controller
 {
-    public function index()
-    { 
-        $cat = category::whereNull('parent_id')->get();
-        
-        return view('user.home',compact('cat'));
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
 
-    public function course()
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
     {
-        
-        return view('user.courses');
+        return view('home');
     }
 }

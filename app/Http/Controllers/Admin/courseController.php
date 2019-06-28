@@ -10,6 +10,10 @@ use App\Http\Controllers\Controller;
 
 class courseController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +21,8 @@ class courseController extends Controller
      */
     public function index()
     {
-        return view('admin.courses.course');
+        $courses = course::all();
+        return view('admin.courses.course',compact('courses'));
     }
 
     /**
@@ -44,17 +49,23 @@ class courseController extends Controller
           'title' => 'required',
           'subtitle' => 'required',
           'author' => 'required',
-          'descr' => 'required'
+          'descr' => 'required',
+          'requirement' => 'required',
+          'tar_audi' => 'required',
+          'playlist' => 'required'
         ]);
-
+        // return $request->all();
         $cours = new course;
         $cours->title = $request->title;
         $cours->subTitle = $request->subtitle;
         $cours->created_by = $request->author;
         $cours->description = $request->descr;
-        $cours->category_id = $request->input("cat->id");
-        $cours->subcategory_id = $request->input("data[i].id");
-        $cours->subsubcategory_id = $request->product;
+        $cours->requirement = $request->requirement;
+        $cours->tar_audi = $request->tar_audi;
+        $cours->playlist = $request->playlist;
+        $cours->category_id = $request->catt;
+        $cours->subcategory_id = $request->subcatt;
+        $cours->subsubcategory_id = $request->subsubcatt;
 
         $cours->save();
 
@@ -69,7 +80,11 @@ class courseController extends Controller
      */
     public function show($id)
     {
-        //
+        $courses = course::where('category_id',$id)->orwhere('subcategory_id',$id)->orwhere('subsubcategory_id',$id)->get();
+        $cat = category::whereNull('parent_id')->get();
+        return view('user.courses',compact('courses','cat'));
+        
+
     }
 
     /**
@@ -80,7 +95,9 @@ class courseController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cor    = course::where('id',$id)->first();
+        $prod   = category::whereNull('parent_id')->get();
+        return view('admin.courses.update',compact('cor','prod'));
     }
 
     /**
@@ -92,7 +109,32 @@ class courseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+
+          'title' => 'required',
+          'subtitle' => 'required',
+          'author' => 'required',
+          'descr' => 'required',
+          'requirement' => 'required',
+          'tar_audi' => 'required',
+          'playlist' => 'required'
+        ]);
+        // return $request->all();
+        $cours = course::find($id);
+        $cours->title = $request->title;
+        $cours->subTitle = $request->subtitle;
+        $cours->created_by = $request->author;
+        $cours->description = $request->descr;
+        $cours->requirement = $request->requirement;
+        $cours->tar_audi = $request->tar_audi;
+        $cours->playlist = $request->playlist;
+        $cours->category_id = $request->catt;
+        $cours->subcategory_id = $request->subcatt;
+        $cours->subsubcategory_id = $request->subsubcatt;
+
+        $cours->save();
+
+        return redirect(route('course.index'));
     }
 
     /**
@@ -103,6 +145,8 @@ class courseController extends Controller
      */
     public function destroy($id)
     {
-        //
+        course::where('id',$id)->delete();
+
+        return redirect()->back();
     }
 }

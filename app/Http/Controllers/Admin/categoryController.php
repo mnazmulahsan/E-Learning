@@ -8,6 +8,10 @@ use App\Http\Controllers\Controller;
 
 class categoryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -76,7 +80,9 @@ class categoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cat    = category::where('id',$id)->first();
+        $allcat = category::all();
+        return view('admin.categories.update',compact('cat','allcat'));
     }
 
     /**
@@ -88,7 +94,20 @@ class categoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+
+          'name' => 'required',
+
+        ]);
+
+        $categ = category::find($id);
+
+        $categ->category_name = $request->name;
+        $categ->parent_id = $request->parent_id=='null'?null:$request->parent_id;
+        $categ->save();
+
+        return redirect(route('category.index'));
+
     }
 
     /**
@@ -99,6 +118,8 @@ class categoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        category::where('id',$id)->delete();
+
+        return redirect()->back();
     }
 }

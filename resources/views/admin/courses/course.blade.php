@@ -2,7 +2,7 @@
 
 @section('headerSection')
 
-<link rel="stylesheet" type="text/css" href="{{ asset('/admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ asset('/admint/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
 
 @endsection
 
@@ -12,13 +12,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Blank page
-        <small>it all starts here</small>
+        SkilledB
+        <small>Future of education Technology</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Examples</a></li>
-        <li class="active">Blank page</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i>Admin</a></li>
+        <li><a href="#">Course</a></li>
       </ol>
     </section>
 
@@ -46,21 +45,45 @@
                 <thead>
                 <tr>
                   <th>S No</th>
-                  <th>Parent Category</th>
-                  <th>Category Name</th>
+                  <th>Course Title</th>
+                  <th>Course Instructor</th>
                   <th>Edit</th>
                   <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
+                   
+                   @foreach ($courses as $cor)
+                    <tr>
+                      <td>{{$loop->index+1}}</td>
+                      <td>{{$cor->title}}</td>
+                      <td>{{$cor->created_by}}</td>
+                      <td><a href="{{ route('course.edit',$cor->id)}}"><i class="fa fa-fw fa-edit"></i></a></td>
+                      <td>
+                        <form id="cat-delete-form-{{$cor->id}}" action="{{ route('course.destroy',$cor->id)}}" method="post" style="display: none" >
+                          
+                          {{csrf_field()}}
+                          {{method_field('DELETE')}}
 
+                        </form>
+                        <a href="#" onclick="if(confirm('Do You Want To Delete')){
+                           
+                           event.preventDefault();
+                           document.getElementById('cat-delete-form-{{$cor->id}}').submit();
+
+                        }else{
+                          event.preventDefault();
+                        }"><i class="fa fa-fw fa-trash"></i></a>
+                      </td>
+                    </tr>
+                   @endforeach
                
                 </tbody>
                 <tfoot>
                 <tr>
                   <th>S No</th>
-                  <th>Parent Category</th>
-                  <th>Category Name</th>
+                  <th>Course Title</th>
+                  <th>Course Instructor</th>
                   <th>Edit</th>
                   <th>Delete</th>
                 </tr>
@@ -88,8 +111,8 @@
 @endsection
 
 @section('footerSection')
- <script src="{{ asset('/admin/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
- <script src="{{ asset('/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+ <script src="{{ asset('/admint/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+ <script src="{{ asset('/admint/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
 
  <script>
   $(function () {

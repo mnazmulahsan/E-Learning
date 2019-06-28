@@ -18,7 +18,11 @@ class CreateCoursesTable extends Migration
             $table->string('title');
             $table->string('subTitle');
             $table->string('created_by'); 
-            $table->string('description');
+            $table->text('description');
+            $table->text('requirement');
+            $table->text('tar_audi');
+            $table->string('playlist');
+            $table->integer('rating')->nullable();
             $table->integer('category_id');
             $table->integer('subcategory_id');
             $table->integer('subsubcategory_id');

@@ -9,7 +9,7 @@
 				<div class="col">
 					<div class="header_content d-flex flex-row align-items-center justify-content-start">
 						<div class="logo_container">
-							<a href="#">
+							<a href="{{'/'}}">
 								<div class="logo_text">skilled<span>B</span></div>
 							</a>
 						</div>
@@ -17,21 +17,55 @@
 						@section('category')
 
 						@show
+
+						
 						
 						<nav class="main_nav_contaner ml-auto">
 							<ul class="main_nav">
 							<li class="active"><a href="{{'/'}}">Home</a></li>
 							<li><a href="{{'/about'}}">About</a></li>
-							<li><a href="">Courses</a></li>
-							<li><a href="{{'/contact'}}}">Contact</a></li>
-							<li><a href="{{'/instructor'}}}">Be</a></li>
+							<li><a href="{{'/allcourses'}}">Courses</a></li>
+							<li><a href="{{'/contact'}}">Contact</a></li>
+							<li><a href="{{'/instructor'}}">Be an instructor</a></li>
+							<!-- Right Side Of Navbar -->
+		                    
+		                        <!-- Authentication Links -->
+		                        @guest
+		                            <li class="nav-item">
+		                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+		                            </li>
+		                            @if (Route::has('register'))
+		                                <li class="nav-item">
+		                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+		                                </li>
+		                            @endif
+		                        @else
+		                            <li class="nav-item dropdown">
+		                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+		                                    {{ Auth::user()->name }} <span class="caret"></span>
+		                                </a>
+
+		                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+		                                    <a class="dropdown-item" href="{{ route('logout') }}"
+		                                       onclick="event.preventDefault();
+		                                                     document.getElementById('logout-form').submit();">
+		                                        {{ __('Logout') }}
+		                                    </a>
+
+		                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+		                                        @csrf
+		                                    </form>
+		                                </div>
+		                            </li>
+		                        @endguest
+		                    
 							</ul>
 							<div class="search_button"><i class="fa fa-search" aria-hidden="true"></i></div>
 							
 
 							<!-- Hamburger -->
 
-							<div class="shopping_cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>
+						<!-- Hamburger	<div class="shopping_cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>-->
 							<div class="hamburger menu_mm">
 								<i class="fa fa-bars menu_mm" aria-hidden="true"></i>
 							</div>
@@ -63,7 +97,7 @@
 	</div>			
 </header>
 
-<!-- Menu -->
+<!-- Menu mobile view-->
 
 <div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
 	<div class="menu_close_container"><div class="menu_close"><div></div><div></div></div></div>

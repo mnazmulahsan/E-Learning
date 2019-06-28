@@ -15,17 +15,17 @@
                <ul class="catagory">
 
                 @foreach($cat as $ca)
-                    <li class="dev-hover"><a href="">{{ $ca->category_name}}</a>
+                    <li class="dev-hover"><a href="{{route('course.show',$ca->id)}}">{{ $ca->category_name}}</a>
                         <ul class="dev-part">
                             @foreach($ca->childs() as $child)
                             <li class="web-hover">
-                                <a href="#">
+                                <a href="{{route('course.show',$child->id)}}">
                                 {{ $child->category_name }}
                             </a>
                                 <ul class="sub_dev">
                                     @foreach($child->childs() as $ch)
 
-                                    <li><a href="#">{{ $ch->category_name }}</a></li>
+                                    <li><a href="{{route('course.show',$ch->id)}}">{{ $ch->category_name }}</a></li>
                                     @endforeach
                                 </ul>
 
@@ -48,11 +48,15 @@
 
         </li>
     </ul>
+
+
 </div>
 
 @endsection
 
 @section('home')
+
+
 <div class="home">
     <div class="home_slider_container">
         
@@ -77,7 +81,7 @@
 
             <!-- Home Slider Item -->
             <div class="owl-item">
-                <div class="home_slider_background" style="background-image:url({{asset('user/images/home_slider_1.jpg')}})"></div>
+                <div class="home_slider_background" style="background-image:url({{asset('user/images/group_cropped.jpg')}})"></div>
                 <div class="home_slider_content">
                     <div class="container">
                         <div class="row">
@@ -132,15 +136,16 @@
         </div>
         <div class="row courses_row">
             
+            @foreach($course as $cor)
             <!-- Course -->
             <div class="col-lg-4 course_col">
                 <div class="course">
                     <div class="course_image"><img src="images/course_1.jpg" alt=""></div>
                     <div class="course_body">
-                        <h3 class="course_title"><a href="course.html">Software Training</a></h3>
-                        <div class="course_teacher">Mr. John Taylor</div>
+                        <h3 class="course_title"><a href="{{ url('/coursedetails/'.$cor->id) }}">{{$cor->title}}</a></h3>
+                        <div class="course_teacher">{{$cor->created_by}}</div>
                         <div class="course_text">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipi elitsed do eiusmod tempor</p>
+                            <p>{{ substr($cor->description, 0, 40)}} {{ strlen($cor->description) > 40 ? "..." : "" }}</p>
                         </div>
                     </div>
                     <div class="course_footer">
@@ -158,65 +163,15 @@
                     </div>
                 </div>
             </div>
+            @endforeach
 
-            <!-- Course -->
-            <div class="col-lg-4 course_col">
-                <div class="course">
-                    <div class="course_image"><img src="images/course_2.jpg" alt=""></div>
-                    <div class="course_body">
-                        <h3 class="course_title"><a href="course.html">Developing Mobile Apps</a></h3>
-                        <div class="course_teacher">Ms. Lucius</div>
-                        <div class="course_text">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipi elitsed do eiusmod tempor</p>
-                        </div>
-                    </div>
-                    <div class="course_footer">
-                        <div class="course_footer_content d-flex flex-row align-items-center justify-content-start">
-                            <div class="course_info">
-                                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                                <span>20 Student</span>
-                            </div>
-                            <div class="course_info">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <span>5 Ratings</span>
-                            </div>
-                            <div class="course_price ml-auto">Free</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Course -->
-            <div class="col-lg-4 course_col">
-                <div class="course">
-                    <div class="course_image"><img src="images/course_3.jpg" alt=""></div>
-                    <div class="course_body">
-                        <h3 class="course_title"><a href="course.html">Starting a Startup</a></h3>
-                        <div class="course_teacher">Mr. Charles</div>
-                        <div class="course_text">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipi elitsed do eiusmod tempor</p>
-                        </div>
-                    </div>
-                    <div class="course_footer">
-                        <div class="course_footer_content d-flex flex-row align-items-center justify-content-start">
-                            <div class="course_info">
-                                <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                                <span>20 Student</span>
-                            </div>
-                            <div class="course_info">
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <span>5 Ratings</span>
-                            </div>
-                            <div class="course_price ml-auto"><span>$320</span>$220</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           
 
         </div>
         <div class="row">
             <div class="col">
-                <div class="courses_button trans_200"><a href="#">view all courses</a></div>
+                <div class="courses_button trans_200"><a href="{{ '/allcourses'}}">view all courses</a></div>
             </div>
         </div>
     </div>

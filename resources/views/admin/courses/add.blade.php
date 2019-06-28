@@ -2,7 +2,7 @@
 
 @section('headerSection')
 
-<link rel="stylesheet" type="text/css" href="{{ asset('/admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ asset('/admint/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
 
 @endsection
 
@@ -12,13 +12,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Blank page
-        <small>it all starts here</small>
+        SkilledB
+        <small>Future of education technology</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Examples</a></li>
-        <li class="active">Blank page</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i>Admin</a></li>
+        <li><a href="#">Course</a></li>
       </ol>
     </section>
 
@@ -41,6 +40,7 @@
       @endif
         <div class="box-body">
           <form role="form" action="{{ route('course.store')}}" method="post">
+          {{-- <form role="form" id="catForm" method="post"> --}}
                 {{csrf_field()}}
                 
                   <div class=" col-lg-offset-1 col-lg-6">
@@ -63,28 +63,43 @@
                         <label for="descr">Description</label>
                         <input type="text" class="form-control" id="descr" name="descr" placeholder="Description">
                        </div>
-  
-						  <select  style="width: 506px; height:35px" class="productcategory" id="prod_cat_id">					  	
-						  	<option value="0" disabled="true" selected="true">-Select-Category-</option>
-						  	@foreach($prod as $cat)
-						  		<option value="{{$cat->id}}">{{$cat->category_name}}</option>
-						  	@endforeach
-						  </select>
-             
-						  <select  style="width: 506px; height:35px" class="productname">
-						  	<option value="0" disabled="true" selected="true">-Select-SubCategory-</option>
-						  </select>
-                
-						  
-						  <select  style="width: 506px; height:35px" class="product">
 
-						  	<option value="0" disabled="true" selected="true">-Select-SubSubCategory-</option>
-						  </select>
-              
                        <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Add</button>
-                        <a class="btn btn-danger" href="{{ route('course.index')}}">Back</a>
+                        <label for="requirement">Requirement</label>
+                        <input type="text" class="form-control" id="requirement" name="requirement" placeholder="Requirement">
                        </div>
+
+                       <div class="form-group">
+                        <label for="tar_audi">Targeted Audience</label>
+                        <input type="text" class="form-control" id="tar_audi" name="tar_audi" placeholder="Targeted Audience">
+                       </div>
+
+                       <div class="form-group">
+                        <label for="Playlist">Playlist Link</label>
+                        <input type="text" class="form-control" id="playlist" name="playlist" placeholder="Playlist Link">
+                       </div>
+  
+        					    <select  style="width: 506px; height:35px" class="productcategory" id="prod_cat_id" name="   catt">					  	
+        						  	<option value="0" disabled="true" selected="true">-Select-Category-</option>
+        						  	@foreach($prod as $cat)
+        						  		<option value="{{$cat->id}}" id="maincat">{{$cat->category_name}}</option>
+        						  	@endforeach
+        						  </select>
+                     
+        						  <select  style="width: 506px; height:35px" class="productname" name="subcatt">
+        						  	<option value="0" disabled="true"  selected="true" id="subcat">-Select-SubCategory-</option>
+        						  </select>
+                        
+        						  
+        						  <select  style="width: 506px; height:35px" class="product" name="subsubcatt">
+
+        						  	<option value="0" disabled="true"  selected="true" id="subsubcat">-Select-SubSubCategory-</option>
+        						  </select>
+              
+                      <div class="form-group">
+                       <button type="submit" class="btn btn-primary" id="saveBtn">Add</button>
+                       <a class="btn btn-danger" href="{{ route('course.index')}}">Back</a>
+                      </div>
                   </div>
             
           </form>
@@ -100,12 +115,21 @@
 @endsection
 
 @section('footerSection')
- <script src="{{ asset('/admin/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
- <script src="{{ asset('/admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+ <script src="{{ asset('/admint/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+ <script src="{{ asset('/admint/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
  
  	<script type="text/javascript">
+
+
 	$(document).ready(function(){
+
+    $.ajaxSetup({
+              headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+        });
+
 
 		$(document).on('change','.productcategory',function(){
 
@@ -136,12 +160,6 @@
 
 		
 
-	});
-
-	</script>
-
-	<script type="text/javascript">
-	$(document).ready(function(){
 
 		$(document).on('change','.productname',function(){
 			
@@ -171,11 +189,10 @@
 			});
 		});
 
-		
+  });
 
-	});
+</script>
 
-	</script>
 <script>
 
   $(function () {

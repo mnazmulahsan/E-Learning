@@ -11,20 +11,22 @@
 |
 */
 
-Route::get('', function () {
-    return view('');
-});
 
-Route::get('/admins', function () {
-    return view('admin.home');
-});
+Route::get('/','HController@index');
+Route::get('/allcourses','HController@allcourse');
+Route::get('/contact','HController@contact');
+Route::get('/coursedetails/{id}','HController@course');
 
+//test
 
-
-Route::get('/','homeController@index');
-Route::get('course','homeController@course');
+Route::get('/prodview','TestController@prodfunct');
+Route::get('/findProductName','TestController@findProductName');
 
 
+
+//Route::get('/admins', function () {
+    //return view('admin.home');
+//});
 
 //Admin Route
 
@@ -39,9 +41,18 @@ Route::group(['namespace' => 'Admin'], function(){
 });
 
 
-//test
 
-Route::get('/prodview','TestController@prodfunct');
-Route::get('/findProductName','TestController@findProductName');
-  
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
+
+
+Route::prefix('admin')->group(function(){
+
+	Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+	Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+	Route::get('/', 'AdminController@index')->name('admin.dashboard');
+	Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
+});
 

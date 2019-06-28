@@ -1412,7 +1412,7 @@ section
 }
 
 /*********************************
-12. Footer
+14. Footer
 *********************************/
 
 .footer
@@ -1421,7 +1421,7 @@ section
 	position: relative;
 	width: 100%;
 	background: #1e2434;
-	padding-top: 94px;
+	padding-top: 30px;
 }
 .footer_background
 {
@@ -1436,7 +1436,7 @@ section
 }
 .footer_content
 {
-	padding-bottom: 53px;
+	padding-bottom: 20px;
 }
 .footer_logo_text
 {
@@ -1445,6 +1445,7 @@ section
 	font-weight: 700;
 	line-height: 0.75;
 	color: #FFFFFF;
+	padding-top: 10px;
 	-webkit-transition: all 200ms ease;
 	-moz-transition: all 200ms ease;
 	-ms-transition: all 200ms ease;
@@ -1620,7 +1621,6 @@ section
 	color: #14bdee;
 }
 
-
 /*********************************
  Main category hover option
 *********************************/
@@ -1667,7 +1667,7 @@ section
 	display: none;
 	height: 530px;
 	border: solid 1px;
-	border-color: black;
+	border-color: white;
 	
 	
 }
@@ -1678,12 +1678,12 @@ section
 	position: absolute;
 	background: white;
 	top: -1px;
-	left: 270px;
+	left: 269px;
 	width: 270px;
 	display: none;
 	height: 530px;
 	border: solid 1px;
-	border-color: black;
+	border-color: white;
 }
 
 
@@ -1692,12 +1692,12 @@ section
     position: absolute;
 	background: white;
 	top: -1px;
-	left: 270px;
+	left: 269px;
 	width: 270px;
 	display: none;
 	height: 530px;
 	
 	border: solid 1px;
-	border-color: black;
+	border-color: white;
 
 }
