@@ -81,7 +81,7 @@
 
             <!-- Home Slider Item -->
             <div class="owl-item">
-                <div class="home_slider_background" style="background-image:url({{asset('user/images/group_cropped.jpg')}})"></div>
+                <div class="home_slider_background" style="background-image:url({{asset('user/images/home_slider_1.jpg')}})"></div>
                 <div class="home_slider_content">
                     <div class="container">
                         <div class="row">

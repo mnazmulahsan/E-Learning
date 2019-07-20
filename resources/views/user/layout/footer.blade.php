@@ -81,35 +81,35 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	</footer>
 </div>
 
-<script src="{{('user/js/jquery-3.2.1.min.js')}}"></script>
-<script src="{{('user/styles/bootstrap4/popper.js')}}"></script>
-<script src="{{('user/styles/bootstrap4/bootstrap.min.js')}}"></script>
-<script src="{{('user/plugins/greensock/TweenMax.min.js')}}"></script>
-<script src="{{('user/plugins/greensock/TimelineMax.min.js')}}"></script>
-<script src="{{('user/plugins/scrollmagic/ScrollMagic.min.js')}}"></script>
-<script src="{{('user/plugins/greensock/animation.gsap.min.js')}}"></script>
-<script src="{{('user/plugins/greensock/ScrollToPlugin.min.js')}}"></script>
-<script src="{{('user/plugins/OwlCarousel2-2.2.1/owl.carousel.js')}}"></script>
-<script src="{{('user/plugins/easing/easing.js')}}"></script>
-<script src="{{('user/plugins/parallax-js-master/parallax.min.js')}}"></script>
-<script src="{{('user/js/custom.js')}}"></script>
+<script src="{{('/user/js/jquery-3.2.1.min.js')}}"></script>
+<script src="{{('/user/styles/bootstrap4/popper.js')}}"></script>
+<script src="{{('/user/styles/bootstrap4/bootstrap.min.js')}}"></script>
+<script src="{{('/user/plugins/greensock/TweenMax.min.js')}}"></script>
+<script src="{{('/user/plugins/greensock/TimelineMax.min.js')}}"></script>
+<script src="{{('/user/plugins/scrollmagic/ScrollMagic.min.js')}}"></script>
+<script src="{{('/user/plugins/greensock/animation.gsap.min.js')}}"></script>
+<script src="{{('/user/plugins/greensock/ScrollToPlugin.min.js')}}"></script>
+<script src="{{('/user/plugins/OwlCarousel2-2.2.1/owl.carousel.js')}}"></script>
+<script src="{{('/user/plugins/easing/easing.js')}}"></script>
+<script src="{{('/user/plugins/parallax-js-master/parallax.min.js')}}"></script>
+<script src="{{('/user/js/custom.js')}}"></script>
 
 <!--
 	For    courses
 -->
-<script src="{{('user/plugins/colorbox/jquery.colorbox-min.js')}}"></script>
-<script src="{{('user/js/courses.js')}}"></script>
+<script src="{{('/user/plugins/colorbox/jquery.colorbox-min.js')}}"></script>
+<script src="{{('/user/js/courses.js')}}"></script>
 
  <!-- For Maps -->
- <script src="{{('user/https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA')}}"></script>
- <script src="{{('user/plugins/marker_with_label/marker_with_label.js')}}"></script>
- <script src="{{('user/js/contact.js')}}"></script>
+ <script src="{{('/user/https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA')}}"></script>
+ <script src="{{('/user/plugins/marker_with_label/marker_with_label.js')}}"></script>
+ <script src="{{('/user/js/contact.js')}}"></script>
 
 <!--   For Course -->
 
-<script src="{{('user/js/course.js')}}"></script>
+<script src="{{('/user/js/course.js')}}"></script>
 
 
 <!--  For About  -->
 
-<script src="{{('user/js/about.js')}}"></script>
+<script src="{{('/user/js/about.js')}}"></script>

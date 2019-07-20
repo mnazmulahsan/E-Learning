@@ -1,3 +1,4 @@
+
 @extends('user/app')
 
 @section('css')
@@ -79,6 +80,7 @@
 
 <!-- Course -->
 
+
 <div class="course">
     <div class="container">
         <div class="row">
@@ -135,6 +137,11 @@
                 </div>
 
                 <center><iframe width="860" height="515" src="{{$cour->playlist}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+                <br>
+                <div>
+                        <a href="{{ route('enroll', $cour->id)}}" class="btn btn-primary">You are already enrolled</a>
+                </div>
+                
               
             </div>
         </div>

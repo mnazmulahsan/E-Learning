@@ -10,4 +10,9 @@ class course extends Model
     {
     	return $this->belongsToMany('app\category');
     }
+
+    public function users()
+    {
+    	return $this->belongsToMany(User::class);
+    }
 }

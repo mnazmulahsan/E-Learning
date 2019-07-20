@@ -18,7 +18,7 @@ class HController extends Controller
     { 
         $cat = category::whereNull('parent_id')->get();
 
-        $course = course::all();
+        $course = course::orderBy('id','asc')->take(6)->get();
         
         return view('user.home',compact('cat','course'));
     }
