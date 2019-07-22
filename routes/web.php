@@ -19,8 +19,7 @@ Route::get('/coursedetails/{id}','HController@course');
 Route::get('/enroll/{id}','UserController@enroll')->name('enroll');
 Route::get('/enrolled/{id}','UserController@enrolledCourse')->name('enrolled');
 
-//test
-
+//test ajax
 Route::get('/prodview','TestController@prodfunct');
 Route::get('/findProductName','TestController@findProductName');
 
@@ -54,6 +53,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
+
+//instructor register
+Route::get('/instregister','Auth\InstructorRegisterController@showInstRegistrationForm')->name('instructor.register');
+Route::post('/instregister','Auth\InstructorRegisterController@instRegister')->name('instregister');
 
 
 Route::prefix('admin')->group(function(){
