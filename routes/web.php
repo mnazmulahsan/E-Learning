@@ -55,9 +55,16 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout');
 
 //instructor register
-Route::get('/instregister','Auth\InstructorRegisterController@showInstRegistrationForm')->name('instructor.register');
-Route::post('/instregister','Auth\InstructorRegisterController@instRegister')->name('instregister');
 
+Route::prefix('instructor')->group(function(){
+
+  Route::get('/register','Auth\InstructorRegisterController@showInstRegistrationForm')->name('instructor.register');
+  Route::post('/register','Auth\InstructorRegisterController@instRegister')->name('instregister');
+  Route::get('/login', 'Auth\InstructorLoginController@showLoginForm')->name('instructor.login');
+  Route::post('/login', 'Auth\InstructorLoginController@login')->name('instructor.login.submit');
+  Route::get('/', 'Instructor\InstructorController@index')->name('instructor.dashboard');
+  Route::post('/logout', 'Auth\InstructorLoginController@logout')->name('instructor.logout');
+});
 
 Route::prefix('admin')->group(function(){
 
