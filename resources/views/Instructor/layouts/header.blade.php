@@ -259,15 +259,16 @@
                                     </a>
 
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('instructor.logout') }}"
+                                        <center><a class="dropdown-item" href="{{ route('instructor.logout') }}"
                                            onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
-                                        </a>
-
+                                        </a></center>
                                         <form id="logout-form" action="{{ route('instructor.logout') }}" method="POST" style="display: none;">
                                             @csrf
                                         </form>
+                      
+                                        <center><a class="dropdown-item" href="">Your Profile</a></center>
                                     </div>
                                 </li>
                             @endguest

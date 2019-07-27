@@ -29,15 +29,13 @@
 							<li class="nav-item dropdown">
 		                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>Instructor!</a>
 
-		                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+		                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">    
 		                                	<a class="dropdown-item" href="{{ route('instructor.register')}}">
 		                                        {{ __('Register Here') }}
 		                                    </a>
-
 		                                    <a class="dropdown-item" href="{{ route('instructor.login')}}">
 		                                        {{ __('Login Here') }}
-		                                    </a>
-		                                    
+		                                    </a>     
 		                                </div>
 		                            </li>		              
 							<!-- Right Side Of Navbar -->
@@ -62,7 +60,7 @@
 		                                	<a class="dropdown-item" href="{{ route('enrolled', Auth::user()->id)}}">
 		                                        {{ __('Your Courses') }}
 		                                    </a>
-		                                    <a class="dropdown-item" href="">
+		                                    <a class="dropdown-item" href="{{ route('user.about', Auth::user()->id)}}">
 		                                        {{ __('Your Profile') }}
 		                                    </a>
 		                                    <a class="dropdown-item" href="{{ route('user.logout') }}"

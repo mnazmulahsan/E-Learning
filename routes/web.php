@@ -18,6 +18,13 @@ Route::get('/contact','HController@contact');
 Route::get('/coursedetails/{id}','HController@course');
 Route::get('/enroll/{id}','UserController@enroll')->name('enroll');
 Route::get('/enrolled/{id}','UserController@enrolledCourse')->name('enrolled');
+Route::get('/user/about/{id}','UserController@about')->name('user.about');
+Route::get('/user/about/update/{id}','UserController@aboutedit')->name('user.aboutupdate');
+Route::post('/user/about/update/{id}','UserController@aboutupdate')->name('user.aboutupdate');
+Route::get('/user/about/create/{id}','UserController@aboutcreate')->name('user.aboutcreate');
+Route::post('/user/about/create/{id}','UserController@aboutstore')->name('user.aboutcreate');
+Route::get('/user/skills/{id}','UserController@skills')->name('user.skills');
+Route::post('/user/skills/{id}','UserController@skillscreate')->name('user.skills');
 
 //test ajax
 Route::get('/prodview','TestController@prodfunct');
@@ -37,6 +44,7 @@ Route::group(['namespace' => 'Admin'], function(){
    Route::resource('admin/category','categoryController');
    Route::resource('admin/course','courseController');
    Route::resource('admin/event','eventController');
+   Route::resource('admin/skill','SkillController');
 
 });
 
