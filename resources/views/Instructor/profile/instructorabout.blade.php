@@ -1,107 +1,147 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('Instructor.layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+@section('headerSection')
 
-    <!-- Title -->
-    <title>Vcard - Resume CV &amp; Vcard Template</title>
+<link rel="stylesheet" type="text/css" href="{{ asset('/admint/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
 
-    <!-- Favicon -->
-    <link rel="icon" href="img/core-img/favicon.ico">
+@endsection
 
-    <!-- Core Stylesheet -->
-    <link rel="stylesheet" href="style.css">
-
-</head>
-
-<body>
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="loader"></div>
-    </div>
-
-    <div class="vcard-main-wrapper">
-        <div class="vcard-content-wrapper bg-img" style="background-image: url(img/bg-img/bg3.jpg);">
-
-            <!-- Contact Button -->
-            <div class="horizontal-contact-btn">
-                <a href="#" class="btn vcard-btn contact-btn"><i class="fa fa-envelope-o"></i><span>Available for freelance work</span></a>
+@section('main-content')
+<!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        SkilledB
+        <small class="btn btn-success">Future of education Technology</small>
+      </h1>
+    </section>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="container-fluid">
+            <h1>Hello! <span class="btn btn-info">{{$instructor->name}}</span></h1>
+            <div>
+                <center><h2 class="btn btn-primary">About {{$instructor->name}} </h2></center>
             </div>
+            <br>
+            
+            <div>
+              <div class="col-lg-10">
+                  <div class="form-group">
+                    <label for="fname">Full Name : </label>
+                    <span>@isset($iabout->fullName){{$iabout->fullName}}@endisset</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="fname">Address : </label>
+                    <span>@isset($iabout->address){{$iabout->address}}@endisset</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="fname">Email : </label>
+                    <span>{{$instructor->email}}</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="fname">Contact Number : </label>
+                    <span>@isset($iabout->number){{$iabout->number}}@endisset</span>
+                  </div>
 
-            <!-- Header Area -->
-            <header class="header_area">
-                <!-- Logo -->
-                <div class="logo d-flex justify-content-center align-items-center">
-                    <a href="index-horizontal-about.html"><img src="img/core-img/logo2.png" alt=""></a>
-                    <!-- Navbar Toggle -->
-                    <div class="nav-toggle">
-                        <i class="fa fa-bars"></i>
-                    </div>
-                </div>
+                   <div class="form-group">
+                    <label for="about">About : </label>
+                    <span>@isset($iabout->about){{$iabout->about}}@endisset</span>
+                   </div>
 
-                <!-- Menu -->
-                <ul class="vcard-nav">
-                    <li class="active"><a href="index-horizontal-about.html">About</a></li>
-                    <li><a href="index-horizontal-skills.html">Skills</a></li>
-                </ul>
-            </header>
-
-            <!-- Vcard Page Content -->
-            <div class="vcard-page-content-wrapper d-flex align-items-end">
-                <div class="page-content">
-
-                    <!-- Hero Content -->
-                    <div class="hero-area horizontal clearfix">
-                        <div class="hero-content">
-                            <h5>Hello I’m</h5>
-                            <h2>Maria Smith</h2>
-                            <h3>Digital Designer &amp; Illustrator</h3>
-                            <!-- Contact Info -->
-                            <div class="contact-info mt-30">
-                                <a href="#"><img src="img/core-img/envelope2.png" alt=""> contactme@templatename.com</a>
-                                <a href="#"><img src="img/core-img/phone-call2.png" alt=""> +76 6524 567862 763</a>
-                                <a href="#"><img src="img/core-img/monitor2.png" alt=""> www.mytemplatename.com</a>
-                            </div>
-                            <!-- Social Info -->
-                            <div class="social-info mt-30">
-                                <a href="#" data-toggle="tooltip" data-placement="top" title="Google Plus"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                            </div>
-
-
-
-                        </div>
-
-                        <p class="mt-5"><a href="#"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                    </div>
-
-                </div>
+                   <div class="form-group">
+                     <label for="fname">Facebook : </label>
+                     <span>@isset($iabout->facebook){{$iabout->facebook}}@endisset</span>
+                   </div>
+                   <div class="form-group">
+                     <label for="fname">LinkedIn : </label>
+                     <span>@isset($iabout->linkedin){{$iabout->linkedin}}@endisset</span>
+                   </div>
+                   <div class="form-group">
+                     <label for="fname">Git handle : </label>
+                     <span>@isset($iabout->git){{$iabout->git}}@endisset</span>
+                   </div>            
+              </div>                
             </div>
-
+          </div>
         </div>
-    </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="container-fluid">
+            
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <!-- ##### All Javascript Files ##### -->
-    <!-- jQuery-2.2.4 js -->
-    <script src="js/jquery/jquery-2.2.4.min.js"></script>
-    <!-- Popper js -->
-    <script src="js/bootstrap/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="js/bootstrap/bootstrap.min.js"></script>
-    <!-- All Plugins js -->
-    <script src="js/plugins/plugins.js"></script>
-    <!-- Active js -->
-    <script src="js/active.js"></script>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="container-fluid">
+             <div>
+                <center><h2 class="btn btn-success">{{$instructor->name}}'s Skills</h2></center>
+            </div>
+            <br>
+            <!-- Single Skills Area -->
+            @foreach (Auth::user()->skills as $su)
+                <div class="col-12 col-md-2 col-xl-2">
+                    <div class="single-skils-area mb-100">
+                        <div>
+                            <h3 class="btn btn-danger"><span>@isset($su->name){{$su->name}}@endisset</span></h3>
+                        </div>
+                    </div>
+                </div>
+            @endforeach     
 
-</body>
+           
+          </div>
+        </div>
+      </div>
+    </section>
 
-</html>
+    <section>
+          <div class="container">
+            <div class="row">
+              <div class="container-fluid">
+                 <div>
+                    <center><a class="btn btn-danger" href="{{route('instructor.createprofile',$instructor->id)}}">Create Profile</a></center>
+                </div>
+                <br>
+      
+              </div>
+            </div>
+          </div>
+        </section>
+
+   
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+@endsection
+
+@section('footerSection')
+ <script src="{{ asset('/admint/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+ <script src="{{ asset('/admint/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+
+ <script>
+  $(function () {
+
+    
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>
+
+
+@endsection

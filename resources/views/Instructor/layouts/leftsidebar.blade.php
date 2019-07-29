@@ -5,11 +5,10 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="/admin/dist/img/ovi1 cropped.jpg" class="img-circle" alt="User Image">
+          <img src="/admint/dist/img/ovi1 cropped.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>Captain</p>
-          <a href="#"><i class="fa fa-circle text-success"></i>Is Online</a>
         </div>
       </div>
       <!-- search form -->
@@ -27,16 +26,10 @@
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">Main Task</li>
         <li class="active treeview">
-          
-           
-            <li class=""><a href="{{ route('icourse.create')}}"><i class="fa fa-circle-o"></i>Add New Course</a></li>
-            <li class=""><a href="{{ route('icourse.index')}}"><i class="fa fa-circle-o"></i>Manage Courses</a></li>
-           
-            
-          
-        </li>
 
-       
+            <li class=""><a href="{{ route('icourse.create')}}"><i class="fa fa-circle-o"></i>Add New Course</a></li>
+            <li class=""><a href="{{ route('icourse.index')}}"><i class="fa fa-circle-o"></i>Manage Courses</a></li> 
+        </li>  
       </ul>
     </section>
     <!-- /.sidebar -->

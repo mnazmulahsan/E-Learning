@@ -10,4 +10,9 @@ class skill extends Model
     {
         return $this->belongsToMany(User::class);
     }
+
+    public function instructors()
+    {
+        return $this->belongsToMany(Instructor::class);
+    }
 }

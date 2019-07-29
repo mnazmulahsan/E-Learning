@@ -18,6 +18,7 @@ Route::get('/contact','HController@contact');
 Route::get('/coursedetails/{id}','HController@course');
 Route::get('/enroll/{id}','UserController@enroll')->name('enroll');
 Route::get('/enrolled/{id}','UserController@enrolledCourse')->name('enrolled');
+//user profile management
 Route::get('/user/about/{id}','UserController@about')->name('user.about');
 Route::get('/user/about/update/{id}','UserController@aboutedit')->name('user.aboutupdate');
 Route::post('/user/about/update/{id}','UserController@aboutupdate')->name('user.aboutupdate');
@@ -26,10 +27,18 @@ Route::post('/user/about/create/{id}','UserController@aboutstore')->name('user.a
 Route::get('/user/skills/{id}','UserController@skills')->name('user.skills');
 Route::post('/user/skills/{id}','UserController@skillscreate')->name('user.skills');
 
+//instructor profile management
+Route::get('/instructor/about/{id}','Instructor\InstructorProfileController@about')->name('instructor.about');
+Route::get('/instructor/update/{id}','Instructor\InstructorProfileController@edit')->name('instructor.editprofile');
+Route::post('/instructor/update/{id}','Instructor\InstructorProfileController@updatestore')->name('instructor.editprofile');
+Route::get('/instructor/create/{id}','Instructor\InstructorProfileController@create')->name('instructor.createprofile');
+Route::post('/instructor/create/{id}','Instructor\InstructorProfileController@createstore')->name('instructor.createprofile');
+Route::get('/instructor/skills/{id}','Instructor\InstructorProfileController@skills')->name('instructor.skills');
+Route::post('/instructor/skills/{id}','Instructor\InstructorProfileController@skillscreate')->name('instructor.skills');
+
 //test ajax
 Route::get('/prodview','TestController@prodfunct');
 Route::get('/findProductName','TestController@findProductName');
-
 
 
 //Route::get('/admins', function () {

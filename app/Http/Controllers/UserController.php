@@ -97,7 +97,7 @@ class UserController extends Controller
           'git' => 'required'
         ]);
         // return $request->all();
-        $update = Uabout::where('user_id' ,$id)->first();
+        $update = Uabout::
         $update->fullName = $request->fname;
         $update->designation = $request->desig;
         $update->address = $request->add;

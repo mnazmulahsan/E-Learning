@@ -143,7 +143,6 @@ class InstructorController extends Controller
     public function destroy($id)
     {
         course::where('id',$id)->delete();
-
         return redirect()->back();
     }
 }

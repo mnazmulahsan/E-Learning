@@ -38,4 +38,9 @@ class Instructor extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function skills()
+    {
+        return $this->belongsToMany(skill::class);
+    }
 }
