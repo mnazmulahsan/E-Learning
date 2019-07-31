@@ -56,11 +56,6 @@
                        </div>
 
                        <div class="form-group">
-                        <label for="author">Author</label>
-                        <input type="text" class="form-control" id="author" name="author" value="{{ $cor->created_by}}">
-                       </div>
-
-                       <div class="form-group">
                         <label for="descr">Description</label>
                         <input type="text" class="form-control" id="descr" name="descr" value="{{ $cor->description}}">
                        </div>
@@ -73,11 +68,6 @@
                        <div class="form-group">
                         <label for="tar_audi">Targeted Audience</label>
                         <input type="text" class="form-control" id="tar_audi" name="tar_audi" value="{{ $cor->tar_audi}}">
-                       </div>
-
-                       <div class="form-group">
-                        <label for="Playlist">Playlist Link</label>
-                        <input type="text" class="form-control" id="playlist" name="playlist" value="{{ $cor->playlist}}">
                        </div>
   
         					    <select  style="width: 506px; height:35px" class="productcategory" id="prod_cat_id" name="   catt">					  	

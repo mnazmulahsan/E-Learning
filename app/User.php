@@ -45,4 +45,6 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(skill::class);
     }
+
+
 }

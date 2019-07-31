@@ -13,11 +13,17 @@
 
 
 Route::get('/','HController@index');
+Route::get('/category/courses/{id}','HController@showCourse')->name('user.catwisecourse');
 Route::get('/allcourses','HController@allcourse');
 Route::get('/contact','HController@contact');
+Route::get('/about','HController@about');
 Route::get('/coursedetails/{id}','HController@course');
+//enrollment
 Route::get('/enroll/{id}','UserController@enroll')->name('enroll');
 Route::get('/enrolled/{id}','UserController@enrolledCourse')->name('enrolled');
+//video showing
+Route::get('/course/video/{id}','UserController@videos')->name('user.video');
+//Route::get('/course/video/download/{id}','UserController@download')->name('user.download');
 //user profile management
 Route::get('/user/about/{id}','UserController@about')->name('user.about');
 Route::get('/user/about/update/{id}','UserController@aboutedit')->name('user.aboutupdate');
@@ -61,6 +67,7 @@ Route::group(['namespace' => 'Instructor'], function(){
    
    //Instructor route
    Route::resource('instructor/icourse','InstructorController');
+   Route::resource('instructor/video','InstructorVideoController');
 
 });
 

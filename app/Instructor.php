@@ -43,4 +43,8 @@ class Instructor extends Authenticatable
     {
         return $this->belongsToMany(skill::class);
     }
+    public function courses()
+    {
+        return $this->belongsToMany(course::class);
+    }
 }

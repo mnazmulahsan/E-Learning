@@ -17,11 +17,10 @@ class CreateCoursesTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('subTitle');
-            $table->string('created_by'); 
+            $table->integer('created_by'); 
             $table->text('description');
             $table->text('requirement');
             $table->text('tar_audi');
-            $table->string('playlist');
             $table->integer('rating')->nullable();
             $table->integer('category_id');
             $table->integer('subcategory_id');

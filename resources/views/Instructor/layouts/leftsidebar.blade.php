@@ -29,6 +29,9 @@
 
             <li class=""><a href="{{ route('icourse.create')}}"><i class="fa fa-circle-o"></i>Add New Course</a></li>
             <li class=""><a href="{{ route('icourse.index')}}"><i class="fa fa-circle-o"></i>Manage Courses</a></li> 
+            <li class=""><a href="{{ route('video.create')}}"><i class="fa fa-circle-o"></i>Add New Video</a></li>
+            <li class=""><a href="{{ route('video.index')}}"><i class="fa fa-circle-o"></i>Manage Videos</a></li> 
+
         </li>  
       </ul>
     </section>

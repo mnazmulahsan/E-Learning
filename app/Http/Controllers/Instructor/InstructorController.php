@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Instructor;
 use Illuminate\Http\Request;
 use App\course;
 use App\category;
+use Auth;
 
 
 use App\Http\Controllers\Controller;
@@ -22,7 +23,7 @@ class InstructorController extends Controller
      */
     public function index()
     {
-        $courses = course::all();
+        $courses = Auth::user()->courses;
         return view('Instructor.home',compact('courses'));
     }
 
@@ -49,26 +50,23 @@ class InstructorController extends Controller
 
           'title' => 'required',
           'subtitle' => 'required',
-          'author' => 'required',
           'descr' => 'required',
           'requirement' => 'required',
           'tar_audi' => 'required',
-          'playlist' => 'required'
         ]);
         // return $request->all();
         $cours = new course;
         $cours->title = $request->title;
         $cours->subTitle = $request->subtitle;
-        $cours->created_by = $request->author;
+        $cours->created_by = Auth::user()->id;
         $cours->description = $request->descr;
         $cours->requirement = $request->requirement;
         $cours->tar_audi = $request->tar_audi;
-        $cours->playlist = $request->playlist;
         $cours->category_id = $request->catt;
         $cours->subcategory_id = $request->subcatt;
         $cours->subsubcategory_id = $request->subsubcatt;
-
         $cours->save();
+        $cours->instructors()->sync(Auth::user()->id, false);
 
         return redirect(route('icourse.index'));
     }
@@ -110,27 +108,24 @@ class InstructorController extends Controller
 
           'title' => 'required',
           'subtitle' => 'required',
-          'author' => 'required',
           'descr' => 'required',
           'requirement' => 'required',
           'tar_audi' => 'required',
-          'playlist' => 'required'
         ]);
         // return $request->all();
         $cours = course::find($id);
         $cours->title = $request->title;
         $cours->subTitle = $request->subtitle;
-        $cours->created_by = $request->author;
+        $cours->created_by = Auth::user()->id;
         $cours->description = $request->descr;
         $cours->requirement = $request->requirement;
         $cours->tar_audi = $request->tar_audi;
-        $cours->playlist = $request->playlist;
         $cours->category_id = $request->catt;
         $cours->subcategory_id = $request->subcatt;
         $cours->subsubcategory_id = $request->subsubcatt;
-
+        
         $cours->save();
-
+        $cours->instructors()->sync(Auth::user()->id, false);
         return redirect(route('icourse.index'));
     }
 

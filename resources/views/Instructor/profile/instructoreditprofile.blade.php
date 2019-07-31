@@ -35,6 +35,10 @@
                             <label for="fname">Full Name</label>
                             <input type="text" class="form-control" id="fname" name="fname" value="@isset($iabout->fullName){{$iabout->fullName}}@endisset">
                           </div>
+                          <div class="form-group">
+                            <label for="desig">Field of Teaching</label>
+                            <input type="text" class="form-control" id="desig" name="desig" value="@isset($iabout->designation){{$iabout->designation}}@endisset">
+                          </div>
 
                            <div class="form-group">
                             <label for="add">Address</label>
@@ -62,7 +66,7 @@
 
                            <div class="form-group">
                             <label for="git">Git</label>
-                            <input type="text" class="form-control" id="git" name="git" value="@isset(i$iabout->git){{$iabout->git}}@endisset">
+                            <input type="text" class="form-control" id="git" name="git" value="@isset($iabout->git){{$iabout->git}}@endisset">
                            </div>
               
                           <div class="form-group">

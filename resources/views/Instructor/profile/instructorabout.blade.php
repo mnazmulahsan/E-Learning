@@ -33,6 +33,10 @@
                     <span>@isset($iabout->fullName){{$iabout->fullName}}@endisset</span>
                   </div>
                   <div class="form-group">
+                    <label for="desig">Field of Teaching : </label>
+                    <span>@isset($iabout->designation){{$iabout->fullName}}@endisset</span>
+                  </div>
+                  <div class="form-group">
                     <label for="fname">Address : </label>
                     <span>@isset($iabout->address){{$iabout->address}}@endisset</span>
                   </div>

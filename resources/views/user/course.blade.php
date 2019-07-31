@@ -17,17 +17,17 @@
                <ul class="catagory">
 
                 @foreach($cat as $ca)
-                    <li class="dev-hover"><a href="{{route('course.show',$ca->id)}}">{{ $ca->category_name}}</a>
+                    <li class="dev-hover"><a href="{{route('user.catwisecourse',$ca->id)}}">{{ $ca->category_name}}</a>
                         <ul class="dev-part">
                             @foreach($ca->childs() as $child)
                             <li class="web-hover">
-                                <a href="{{route('course.show',$child->id)}}">
+                                <a href="{{route('user.catwisecourse',$child->id)}}">
                                 {{ $child->category_name }}
                             </a>
                                 <ul class="sub_dev">
                                     @foreach($child->childs() as $ch)
 
-                                    <li><a href="{{route('course.show',$ch->id)}}">{{ $ch->category_name }}</a></li>
+                                    <li><a href="{{route('user.catwisecourse',$ch->id)}}">{{ $ch->category_name }}</a></li>
                                     @endforeach
                                 </ul>
 
@@ -73,9 +73,6 @@
         </div>
     </div>			
 </div>
-
-
-
 
 
 <!-- Course -->
@@ -136,12 +133,21 @@
              
                 </div>
 
-                <center><iframe width="860" height="515" src="{{$cour->playlist}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
-                <br>
+
+
+        @if (Auth::check())
+            @if( $cour->enrolled($cour->id, Auth::user()->id))
                 <div>
-                        <a href="{{ route('enroll', $cour->id)}}" class="btn btn-primary">You are already enrolled</a>
+                    <a class="btn btn-danger" href="{{route('user.video', $cour->id)}}">See Course Materials</a>
                 </div>
+            @else
+
+                <div>
+                    <a href="{{ route('enroll', $cour->id)}}" class="btn btn-primary">First Enroll</a>
+                </div>
+            @endif
                 
+        @endif
               
             </div>
         </div>

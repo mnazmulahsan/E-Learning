@@ -17,6 +17,7 @@ class CreateIaboutsTable extends Migration
             $table->bigIncrements('id');
             $table->string('user_id');
             $table->string('fullName');
+            $table->string('designation');
             $table->string('address');
             $table->integer('number');
             $table->string('image');

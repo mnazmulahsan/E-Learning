@@ -15,17 +15,17 @@
                <ul class="catagory">
 
                 @foreach($cat as $ca)
-                    <li class="dev-hover"><a href="{{route('course.show',$ca->id)}}">{{ $ca->category_name}}</a>
+                    <li class="dev-hover"><a href="{{route('user.catwisecourse',$ca->id)}}">{{ $ca->category_name}}</a>
                         <ul class="dev-part">
                             @foreach($ca->childs() as $child)
                             <li class="web-hover">
-                                <a href="{{route('course.show',$child->id)}}">
+                                <a href="{{route('user.catwisecourse',$child->id)}}">
                                 {{ $child->category_name }}
                             </a>
                                 <ul class="sub_dev">
                                     @foreach($child->childs() as $ch)
 
-                                    <li><a href="{{route('course.show',$ch->id)}}">{{ $ch->category_name }}</a></li>
+                                    <li><a href="{{route('user.catwisecourse',$ch->id)}}">{{ $ch->category_name }}</a></li>
                                     @endforeach
                                 </ul>
 

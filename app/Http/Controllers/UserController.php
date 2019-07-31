@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use App\course;
 use App\User;
 use App\category;
 use App\Uabout;
+use App\Video;
 use App\skill;
 use App\userskill;
 use Auth;
@@ -15,6 +17,10 @@ use Session;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function enroll($id)
     {
     	$course = course::find($id);
@@ -23,6 +29,13 @@ class UserController extends Controller
     	//return view('enrolled.greeting');
     	return redirect()->back();
     }
+    public function videos($id)
+    {
+       $cat = category::whereNull('parent_id')->get();
+       $course = course::find($id);
+       $vdo = $course->videos;
+       return view('user.coursevideo',compact('vdo','cat','course'));
+    }
 
     public function enrolledCourse($id)
     {
@@ -30,7 +43,6 @@ class UserController extends Controller
     	$user = User::find($id);
 
         return view('enrolled.enrolled', compact('user','cat'));
-
     }
 
     public function about($id)

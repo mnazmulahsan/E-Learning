@@ -40,6 +40,10 @@
                             <label for="fname">Full Name</label>
                             <input type="text" class="form-control" id="fname" name="fname">
                           </div>
+                          <div class="form-group">
+                            <label for="desig">Field of Teaching</label>
+                            <input type="text" class="form-control" id="desig" name="desig">
+                          </div>
 
                            <div class="form-group">
                             <label for="add">Address</label>

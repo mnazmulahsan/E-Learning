@@ -34,6 +34,7 @@ class InstructorProfileController extends Controller
     {
     	$this->validate($request,[
     		'fname' => 'required',
+            'desig' => 'required',
     		'add' => 'required',
     		'number' => 'required',
     		'about' => 'required',
@@ -45,6 +46,7 @@ class InstructorProfileController extends Controller
     	$about = new Iabout;
     	$about->user_id = $id;
     	$about->fullName = $request->fname;
+        $about->designation = $request->desig;
     	$about->address = $request->add;
     	$about->number = $request->number;
     	$about->about = $request->about;
@@ -68,6 +70,7 @@ class InstructorProfileController extends Controller
     {
     	$this->validate($request,[
     		'fname' => 'required',
+            'designation' => 'desig',
     		'add' => 'required',
     		'number' => 'required',
     		'about' => 'required',
@@ -79,6 +82,7 @@ class InstructorProfileController extends Controller
     	$about = Iabout::where('user_id' ,$id)->first();
     	$about->user_id = $id;
     	$about->fullName = $request->fname;
+        $about->designation = $request->desig;
     	$about->address = $request->add;
     	$about->number = $request->number;
     	$about->about = $request->about;

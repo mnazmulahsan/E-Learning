@@ -80,9 +80,9 @@ class courseController extends Controller
      */
     public function show($id)
     {
-        $courses = course::where('category_id',$id)->orwhere('subcategory_id',$id)->orwhere('subsubcategory_id',$id)->get();
-        $cat = category::whereNull('parent_id')->get();
-        return view('user.courses',compact('courses','cat'));
+        // $courses = course::where('category_id',$id)->orwhere('subcategory_id',$id)->orwhere('subsubcategory_id',$id)->get();
+        // $cat = category::whereNull('parent_id')->get();
+        // return view('user.courses',compact('courses','cat'));
         
 
     }

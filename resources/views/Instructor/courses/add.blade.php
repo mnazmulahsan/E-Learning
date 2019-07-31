@@ -55,11 +55,6 @@
                        </div>
 
                        <div class="form-group">
-                        <label for="author">Author</label>
-                        <input type="text" class="form-control" id="author" name="author" placeholder="Author">
-                       </div>
-
-                       <div class="form-group">
                         <label for="descr">Description</label>
                         <input type="text" class="form-control" id="descr" name="descr" placeholder="Description">
                        </div>
@@ -72,11 +67,6 @@
                        <div class="form-group">
                         <label for="tar_audi">Targeted Audience</label>
                         <input type="text" class="form-control" id="tar_audi" name="tar_audi" placeholder="Targeted Audience">
-                       </div>
-
-                       <div class="form-group">
-                        <label for="Playlist">Playlist Link</label>
-                        <input type="text" class="form-control" id="playlist" name="playlist" placeholder="Playlist Link">
                        </div>
   
         					    <select  style="width: 506px; height:35px" class="productcategory" id="prod_cat_id" name="   catt">					  	
@@ -119,10 +109,10 @@
  <script src="{{ asset('/admint/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
  
- 	<script type="text/javascript">
+ 	  <script type="text/javascript">
 
 
-	$(document).ready(function(){
+  $(document).ready(function(){
 
     $.ajaxSetup({
               headers: {
@@ -131,63 +121,63 @@
         });
 
 
-		$(document).on('change','.productcategory',function(){
+    $(document).on('change','.productcategory',function(){
 
-			var cat_id=$(this).val();
-			var div=$(this).parent();
+      var cat_id=$(this).val();
+      var div=$(this).parent();
 
-			var op=" ";
+      var op=" ";
 
-			$.ajax({
-				type:'get',
-				url:'{!!URL::to('findProductName')!!}',
-				data:{'id':cat_id},
-				success:function(data){
-					
-					op+='<option value="0" selected disabled>Select SubCategory</option>';
-					for(var i=0;i<data.length;i++){
-					op+='<option value="'+data[i].id+'">'+data[i].category_name+'</option>';
-				   }
+      $.ajax({
+        type:'get',
+        url:'{!!URL::to('findProductName')!!}',
+        data:{'id':cat_id},
+        success:function(data){
+          
+          op+='<option value="0" selected disabled>Select SubCategory</option>';
+          for(var i=0;i<data.length;i++){
+          op+='<option value="'+data[i].id+'">'+data[i].category_name+'</option>';
+           }
 
-				   div.find('.productname').html(" ");
-				   div.find('.productname').append(op);
-				},
-				error:function(){
+           div.find('.productname').html(" ");
+           div.find('.productname').append(op);
+        },
+        error:function(){
 
-				}
-			});
-		});
+        }
+      });
+    });
 
-		
+    
 
 
-		$(document).on('change','.productname',function(){
-			
+    $(document).on('change','.productname',function(){
+      
 
-			var cat_id=$(this).val();
-			var div=$(this).parent();
+      var cat_id=$(this).val();
+      var div=$(this).parent();
 
-			var op=" ";
+      var op=" ";
 
-			$.ajax({
-				type:'get',
-				url:'{!!URL::to('findProductName')!!}',
-				data:{'id':cat_id},
-				success:function(data){
-					
-					op+='<option value="0" selected disabled>Select SubSubCategory</option>';
-					for(var i=0;i<data.length;i++){
-					op+='<option value="'+data[i].id+'">'+data[i].category_name+'</option>';
-				   }
+      $.ajax({
+        type:'get',
+        url:'{!!URL::to('findProductName')!!}',
+        data:{'id':cat_id},
+        success:function(data){
+          
+          op+='<option value="0" selected disabled>Select SubSubCategory</option>';
+          for(var i=0;i<data.length;i++){
+          op+='<option value="'+data[i].id+'">'+data[i].category_name+'</option>';
+           }
 
-				   div.find('.product').html(" ");
-				   div.find('.product').append(op);
-				},
-				error:function(){
+           div.find('.product').html(" ");
+           div.find('.product').append(op);
+        },
+        error:function(){
 
-				}
-			});
-		});
+        }
+      });
+    });
 
   });
 

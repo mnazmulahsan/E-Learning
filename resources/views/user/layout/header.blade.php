@@ -78,15 +78,6 @@
 		                        @endguest
 		                    
 							</ul>
-							<div class="search_button"><i class="fa fa-search" aria-hidden="true"></i></div>
-							
-
-							<!-- Hamburger -->
-
-						<!-- Hamburger	<div class="shopping_cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i></div>-->
-							<div class="hamburger menu_mm">
-								<i class="fa fa-bars menu_mm" aria-hidden="true"></i>
-							</div>
 							
 						</nav>
 
@@ -95,24 +86,6 @@
 			</div>
 		</div>
 	</div>
-
-	<!-- Header Search Panel -->
-	<div class="header_search_container">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="header_search_content d-flex flex-row align-items-center justify-content-end">
-						<form action="#" class="header_search_form">
-							<input type="search" class="search_input" placeholder="Search Here" required="required">
-							<button class="header_search_button d-flex flex-column align-items-center justify-content-center">
-								<i class="fa fa-search" aria-hidden="true"></i>
-							</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>			
-	</div>			
 </header>
 
 <!-- Menu mobile view-->
