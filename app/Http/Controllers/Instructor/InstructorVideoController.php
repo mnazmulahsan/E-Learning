@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Instructor;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use App\course;
 use App\Video;
 use Auth;
@@ -52,12 +52,13 @@ class InstructorVideoController extends Controller
         ]);
 
         if($request->hasFile('video')){
-            $vdo = $request->video->store('public/videos');
+            $filename = $request->video->getClientOriginalName();
+            $request->video->storeAs('public/videos', $filename);
         }
 
         $video = new Video;
         $video->title = $request->title;
-        $video->link = $vdo;
+        $video->link = $filename;
         $video->course_id = $request->course;
         $video->instructor_id = Auth::user()->id;
         $video->save();
@@ -107,12 +108,13 @@ class InstructorVideoController extends Controller
         ]);
 
         if($request->hasFile('video')){
-            $vdo = $request->video->store('public/videos');
+            $filename = $request->video->getClientOriginalName();
+            $request->video->storeAs('public/videos', $filename);
         }
 
         $video = Video::find($id);
         $video->title = $request->title;
-        $video->link = $vdo;
+        $video->link = $filename;
         $video->course_id = $request->course;
         $video->instructor_id = Auth::user()->id;
         $video->save();

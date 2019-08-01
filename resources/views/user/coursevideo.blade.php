@@ -4,6 +4,8 @@
 @section('css')
 <link rel="stylesheet" type="text/css" href="{{asset('user/styles/course.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('user/styles/course_responsive.css')}}">
+<link href="https://vjs.zencdn.net/7.6.0/video-js.css" rel="stylesheet">
+
 @endsection
 
 @section('category')
@@ -76,29 +78,47 @@
     </div>			
 </div>
 
+<div><center><h2>All Videos <span class="btn btn-primary">{{$course->title}}</span></h2></center>
+            <br></div>
+
 
 <div class="container">
-	<div class="row">
-		
+    @foreach ($vdo as $vd)
+	<div class="row col-lg-12">
+						 
+                <div class="col-lg-5 pull-left">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <h3>Title: {{$vd->title}}</h3>
+                </div>
+                
+                <div class="col-lg-7 pull-right">
+                    <video id='my-video' class='video-js' controls preload='auto' width='640' height='264'
+                     poster='MY_VIDEO_POSTER.jpg' data-setup='{}'>
+                       <source src='{{URL::asset("storage/videos/$vd->link")}}' type='video/mp4'>
+                       <source src='MY_VIDEO.webm' type='video/webm'>
+                       <p class='vjs-no-js'>
+                         To view this video please enable JavaScript, and consider upgrading to a web browser that
+                         <a href='https://videojs.com/html5-video-support/' target='_blank'>supports HTML5 video</a>
+                       </p>
+                     </video>
+                </div>
 
-		<div class="col-lg-10">
-			<h2>All Videos</h2>
-			<div >
-				@foreach ($vdo as $vd) 
-				  {{$vd->title}}
-				  <a class="btn btn-danger" href="">Download file</a>
-					<br>
-					<br>
-				@endforeach
-				
-			</div>
 			
 		</div>
-		
-	</div>
+        <hr>
+		@endforeach
+    
 </div>
 
 		
 
 
+@endsection
+@section('footerSection')
+<script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+<script src='https://vjs.zencdn.net/7.6.0/video.js'></script>
 @endsection

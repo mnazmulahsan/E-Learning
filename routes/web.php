@@ -18,6 +18,7 @@ Route::get('/allcourses','HController@allcourse');
 Route::get('/contact','HController@contact');
 Route::get('/about','HController@about');
 Route::get('/coursedetails/{id}','HController@course');
+Route::get('/eventdetails/{id}','HController@eventDetails')->name('eventdetails');
 //enrollment
 Route::get('/enroll/{id}','UserController@enroll')->name('enroll');
 Route::get('/enrolled/{id}','UserController@enrolledCourse')->name('enrolled');
@@ -42,7 +43,7 @@ Route::post('/instructor/create/{id}','Instructor\InstructorProfileController@cr
 Route::get('/instructor/skills/{id}','Instructor\InstructorProfileController@skills')->name('instructor.skills');
 Route::post('/instructor/skills/{id}','Instructor\InstructorProfileController@skillscreate')->name('instructor.skills');
 
-//test ajax
+//test ajax category
 Route::get('/prodview','TestController@prodfunct');
 Route::get('/findProductName','TestController@findProductName');
 

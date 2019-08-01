@@ -16,9 +16,8 @@
         <small>it all starts here</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Examples</a></li>
-        <li class="active">Blank page</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i>Admin</a></li>
+        <li><a href="#">Events</a></li>
       </ol>
     </section>
 
@@ -38,7 +37,7 @@
         <div class="box-body">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Categories That are already exist</h3>
+              <h3 class="box-title">Events That are already exist</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -46,22 +45,20 @@
                 <thead>
                 <tr>
                   <th>S No</th>
-                  <th>Parent Category</th>
-                  <th>Category Name</th>
+                  <th>Event Name</th>
                   <th>Edit</th>
                   <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
 
-                  @foreach ($categories as $cat)
+                  @foreach ($events as $event)
                     <tr>
                       <td>{{$loop->index+1}}</td>
-                      <td>{{$cat->parent_id}}</td>
-                      <td>{{$cat->category_name}}</td>
-                      <td><a href="{{ route('category.edit',$cat->id)}}"><i class="fa fa-fw fa-edit"></i></a></td>
+                      <td>{{$event->title}}</td>
+                      <td><a href="{{ route('event.edit',$event->id)}}"><i class="fa fa-fw fa-edit"></i></a></td>
                       <td>
-                        <form id="cat-delete-form-{{$cat->id}}" action="{{ route('category.destroy',$cat->id)}}" method="post" style="display: none" >
+                        <form id="cat-delete-form-{{$event->id}}" action="{{ route('event.destroy',$event->id)}}" method="post" style="display: none" >
                           
                           {{csrf_field()}}
                           {{method_field('DELETE')}}
@@ -70,7 +67,7 @@
                         <a href="#" onclick="if(confirm('Do You Want To Delete')){
                            
                            event.preventDefault();
-                           document.getElementById('cat-delete-form-{{$cat->id}}').submit();
+                           document.getElementById('cat-delete-form-{{$event->id}}').submit();
 
                         }else{
                           event.preventDefault();
@@ -83,8 +80,7 @@
                 <tfoot>
                 <tr>
                   <th>S No</th>
-                  <th>Parent Category</th>
-                  <th>Category Name</th>
+                  <th>Event Name</th>
                   <th>Edit</th>
                   <th>Delete</th>
                 </tr>
@@ -99,7 +95,6 @@
 
 
         <div class="box-footer">
-          Footer
         </div>
         <!-- /.box-footer-->
       </div>

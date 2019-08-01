@@ -445,7 +445,12 @@ section
 	margin: 5px;
 	padding: 5px;
 	font-size: 20px;
-	color: black;
+	color: white;
+	
+}
+#main-cat li a:hover{
+	
+	color: #14bdee;
 	
 }
 .catagory{
@@ -454,12 +459,12 @@ section
 	position: absolute;
 	top: 47px;
 	left: 1px;
-	background: white;
+	background: #384158;
 	width: 270px;
 	display: none;
-	height: 530px;
+	height: 415px;
 	border: solid 1px;
-	border-color: white;
+	border-color: #384158;
 	
 	
 }
@@ -468,29 +473,28 @@ section
 .dev-part{
 	
 	position: absolute;
-	background: white;
+	background: #384158;
 	top: -1px;
 	left: 269px;
 	width: 270px;
 	display: none;
-	height: 530px;
+	height: 415px;
 	border: solid 1px;
-	border-color: white;
+	border-color: #384158;
 }
 
 
 .sub_dev{
 
     position: absolute;
-	background: white;
+	background: #384158;
 	top: -1px;
 	left: 269px;
 	width: 270px;
 	display: none;
-	height: 530px;
-	
+	height: 415px;
 	border: solid 1px;
-	border-color: white;
+	border-color: #384158;
 
 }
 
@@ -1163,10 +1167,10 @@ section
 	padding-top: 30px;
 	padding-bottom: 30px;
 }
-.event_date
+/*.event_date
 {
 	box-shadow: 0px 1px 10px rgba(29, 34, 47, 0.1);
-}
+}*/
 .event_date > div
 {
 	width: 60px;
@@ -1189,15 +1193,15 @@ section
 	line-height: 0.75;
 	margin-top: 9px;
 }
-.event:hover .event_date > div
+/*.event:hover .event_date > div
 {
 	background: #14bdee;
-}
-.event:hover .event_day,
+}*/
+/*.event:hover .event_day,
 .event:hover .event_month
 {
 	color: #FFFFFF;
-}
+}*/
 .event_content
 {
 	padding-left: 20px;

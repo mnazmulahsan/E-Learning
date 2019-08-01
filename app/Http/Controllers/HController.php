@@ -7,6 +7,7 @@ use App\category;
 use App\course;
 use App\Instructor;
 use App\Iabout;
+use App\event;
 use App\Http\Controllers\Controller;
 
 class HController extends Controller
@@ -21,7 +22,8 @@ class HController extends Controller
         $cat = category::whereNull('parent_id')->get();
         $course = course::orderBy('id','asc')->take(6)->get();
         $ilist = Iabout::orderBy('id','asc')->take(4)->get();
-        return view('user.home',compact('cat','course','ilist'));
+        $events = event::all();
+        return view('user.home',compact('cat','course','ilist','events'));
     }
     public function course($id)
     {
@@ -59,6 +61,11 @@ class HController extends Controller
         $cat = category::whereNull('parent_id')->get();
         return view('user.courses',compact('courses','cat'));
         
-
     }
+
+    public function EventDetails($id)
+    {
+        $event = event::find($id);
+    }
+
 }

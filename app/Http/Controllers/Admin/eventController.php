@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
+use App\event;
 
 use App\Http\Controllers\Controller;
 
@@ -19,7 +20,8 @@ class eventController extends Controller
      */
     public function index()
     {
-        //
+        $events = event::all();
+        return view('admin.events.event',compact('events'));
     }
 
     /**
@@ -29,7 +31,7 @@ class eventController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.events.add');
     }
 
     /**
@@ -40,7 +42,37 @@ class eventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+
+          'title' => 'required',
+          'date' => 'required',
+          'venue' => 'required',
+          'time' => 'required',
+          'speaker1' => 'required',
+          'link' => 'required',
+          'image' => 'required',
+        ]);
+
+        if($request->hasFile('image')){
+            $filename = $request->image->getClientOriginalName();
+            $request->image->storeAs('public/images', $filename);
+
+        }
+        // return $request->all();
+        $even = new event;
+        $even->title = $request->title;
+        $even->image = $filename;
+        $even->date = $request->date;
+        $even->venue = $request->venue;
+        $even->time = $request->time;
+        $even->description = $request->des;
+        $even->speaker1 = $request->speaker1;
+        $even->speaker2 = $request->speaker2;
+        $even->speaker3 = $request->speaker3;
+        $even->link = $request->link;
+        $even->save();
+
+        return redirect(route('event.index'));
     }
 
     /**
@@ -62,7 +94,8 @@ class eventController extends Controller
      */
     public function edit($id)
     {
-        //
+        $event = event::find($id);
+        return view('admin.events.update',compact('event'));
     }
 
     /**
@@ -74,7 +107,37 @@ class eventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+
+          'title' => 'required',
+          'date' => 'required',
+          'venue' => 'required',
+          'time' => 'required',
+          'speaker1' => 'required',
+          'link' => 'required',
+          'image' => 'required',
+        ]);
+
+        if($request->hasFile('image')){
+            $filename = $request->image->getClientOriginalName();
+            $request->image->storeAs('public/images', $filename);
+
+        }
+        // return $request->all();
+        $even = event::find($id);
+        $even->title = $request->title;
+        $even->image = $filename;
+        $even->date = $request->date;
+        $even->venue = $request->venue;
+        $even->time = $request->time;
+        $even->description = $request->des;
+        $even->speaker1 = $request->speaker1;
+        $even->speaker2 = $request->speaker2;
+        $even->speaker3 = $request->speaker3;
+        $even->link = $request->link;
+        $even->save();
+
+        return redirect(route('event.index'));
     }
 
     /**
@@ -85,6 +148,7 @@ class eventController extends Controller
      */
     public function destroy($id)
     {
-        //
+        event::where('id',$id)->delete();
+        return redirect()->back();
     }
 }

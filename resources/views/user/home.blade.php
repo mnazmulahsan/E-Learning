@@ -63,9 +63,11 @@
         <!-- Home Slider -->
         <div class="owl-carousel owl-theme home_slider">
             
+        
+
             <!-- Home Slider Item -->
             <div class="owl-item">
-                <div class="home_slider_background" style="background-image:url({{asset('user/images/home_slider_1.jpg')}})"></div>
+                <div class="home_slider_background" style="background-image:url({{asset('user/images/nikita-kachanovsky-OVbeSXRk_9E-unsplash.jpg')}})"></div>
                 <div class="home_slider_content">
                     <div class="container">
                         <div class="row">
@@ -81,7 +83,22 @@
 
             <!-- Home Slider Item -->
             <div class="owl-item">
-                <div class="home_slider_background" style="background-image:url({{asset('user/images/home_slider_1.jpg')}})"></div>
+                <div class="home_slider_background" style="background-image:url({{asset('user/images/bram-naus-n8Qb1ZAkK88-unsplash.jpg')}})"></div>
+                <div class="home_slider_content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col text-center">
+                                <div class="home_slider_title">Skilled Bangladesh</div>
+                                <div class="home_slider_subtitle">Future Of Education Technology</div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Home Slider Item -->
+            <div class="owl-item">
+                <div class="home_slider_background" style="background-image:url({{asset('user/images/helloquence-5fNmWej4tAA-unsplash.jpg')}})"></div>
                 <div class="home_slider_content">
                     <div class="container">
                         <div class="row">
@@ -95,21 +112,6 @@
                 </div>
             </div>
 
-            <!-- Home Slider Item -->
-            <div class="owl-item">
-                <div class="home_slider_background" style="background-image:url({{asset('user/images/home_slider_1.jpg')}})"></div>
-                <div class="home_slider_content">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col text-center">
-                                <div class="home_slider_title">Skilled Bangladesh</div>
-                                <div class="home_slider_subtitle">Future Of Education Technology</div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
         </div>
     </div>
@@ -185,86 +187,38 @@
             <div class="col">
                 <div class="section_title_container text-center">
                     <h2 class="section_title">Upcoming events</h2>
-                    <div class="section_subtitle"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel gravida arcu. Vestibulum feugiat, sapien ultrices fermentum congue, quam velit venenatis sem</p></div>
+                    <div class="section_subtitle"><p></p></div>
                 </div>
             </div>
         </div>
         <div class="row events_row">
-
+           
+           @foreach ($events as $event)
             <!-- Event -->
             <div class="col-lg-4 event_col">
                 <div class="event event_left">
-                    <div class="event_image"><img src="images/event_1.jpg" alt=""></div>
+                    <div class="event_image"><img src="{{asset('storage/images/'.$event->image)}}" alt=""></div>
                     <div class="event_body d-flex flex-row align-items-start justify-content-start">
                         <div class="event_date">
                             <div class="d-flex flex-column align-items-center justify-content-center trans_200">
-                                <div class="event_day trans_200">21</div>
-                                <div class="event_month trans_200">Aug</div>
+                                <div class="event_day trans_200">{{$event->date}}</div>
+                                <div class="event_month trans_200"></div>
                             </div>
                         </div>
                         <div class="event_content">
-                            <div class="event_title"><a href="#">Which Country Handles Student Debt?</a></div>
+                            <div class="event_title"><a href="{{route('eventdetails',$event->id)}}">{{$event->title}}</a></div>
                             <div class="event_info_container">
-                                <div class="event_info"><i class="fa fa-clock-o" aria-hidden="true"></i><span>15.00 - 19.30</span></div>
-                                <div class="event_info"><i class="fa fa-map-marker" aria-hidden="true"></i><span>25 New York City</span></div>
+                                <div class="event_info"><i class="fa fa-clock-o" aria-hidden="true"></i><span>{{$event->time}}</span></div>
+                                <div class="event_info"><i class="fa fa-map-marker" aria-hidden="true"></i><span>{{$event->venue}}</span></div>
                                 <div class="event_text">
-                                    <p>Policy analysts generally agree on a need for reform, but not on which path...</p>
+                                    <p></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Event -->
-            <div class="col-lg-4 event_col">
-                <div class="event event_mid">
-                    <div class="event_image"><img src="images/event_2.jpg" alt=""></div>
-                    <div class="event_body d-flex flex-row align-items-start justify-content-start">
-                        <div class="event_date">
-                            <div class="d-flex flex-column align-items-center justify-content-center trans_200">
-                                <div class="event_day trans_200">27</div>
-                                <div class="event_month trans_200">Aug</div>
-                            </div>
-                        </div>
-                        <div class="event_content">
-                            <div class="event_title"><a href="#">Repaying your student loans (Winter 2017-2018)</a></div>
-                            <div class="event_info_container">
-                                <div class="event_info"><i class="fa fa-clock-o" aria-hidden="true"></i><span>09.00 - 17.30</span></div>
-                                <div class="event_info"><i class="fa fa-map-marker" aria-hidden="true"></i><span>25 Brooklyn City</span></div>
-                                <div class="event_text">
-                                    <p>This Consumer Action News issue covers topics now being debated before...</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Event -->
-            <div class="col-lg-4 event_col">
-                <div class="event event_right">
-                    <div class="event_image"><img src="images/event_3.jpg" alt=""></div>
-                    <div class="event_body d-flex flex-row align-items-start justify-content-start">
-                        <div class="event_date">
-                            <div class="d-flex flex-column align-items-center justify-content-center trans_200">
-                                <div class="event_day trans_200">01</div>
-                                <div class="event_month trans_200">Sep</div>
-                            </div>
-                        </div>
-                        <div class="event_content">
-                            <div class="event_title"><a href="#">Alternative data and financial inclusion</a></div>
-                            <div class="event_info_container">
-                                <div class="event_info"><i class="fa fa-clock-o" aria-hidden="true"></i><span>13.00 - 18.30</span></div>
-                                <div class="event_info"><i class="fa fa-map-marker" aria-hidden="true"></i><span>25 New York City</span></div>
-                                <div class="event_text">
-                                    <p>Policy analysts generally agree on a need for reform, but not on which path...</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           @endforeach
 
         </div>
     </div>
@@ -278,8 +232,8 @@
         <div class="row">
             <div class="col">
                 <div class="section_title_container text-center">
-                    <h2 class="section_title">The Best Tutors in Town</h2>
-                    <div class="section_subtitle"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vel gravida arcu. Vestibulum feugiat, sapien ultrices fermentum congue, quam velit venenatis sem</p></div>
+                    <h2 class="section_title">The Best Instructors From Bangladesh</h2>
+                    {{-- <div class="section_subtitle"><p></p></div> --}}
                 </div>
             </div>
         </div>
