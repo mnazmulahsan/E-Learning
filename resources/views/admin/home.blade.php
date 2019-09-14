@@ -18,22 +18,63 @@
     <!-- Main content -->
     <section class="content">
       <!-- Default box -->
-      <div class="box">
-        <div class="box-header with-border">
-          <h3 class="box-title">SKILLED BANGLADESH</h3>
+      <div >
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="col-lg-12">
+          <div class="col-lg-5 btn btn-primary">Total Category 
+            <div>
+              <h3>{{$tc}} Category</h3>
+            </div>
+          </div>
+          <div class="col-lg-5 btn btn-success pull-right">Total Skills
+            <div>
+              <h3>{{$ts}} Skills</h3>
+            </div>
 
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="col-lg-12">      
+          <div class="col-lg-5 btn btn-danger" >Total Course
+            <div>
+              <h3>{{$tcor}} Course</h3>
+            </div>
+          </div>
+          <div class="col-lg-5 btn btn-default pull-right">Total Events
+            <div>
+              <h3>{{$tev}} Event</h3>
+            </div>
 
-                                
+          </div>
         </div>
-        <div class="box-body">
-          Start creating new technology!
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="col-lg-12">
+          <div class="col-lg-5 btn btn-success">Total Instructor
+            <div>
+              <h3>{{$ti}} Instructor</h3>
+            </div>
+          </div>
+          <div class="col-lg-5 btn btn-primary pull-right">Total User
+            <div>
+              <h3>{{$tu}} User</h3>
+            </div>
+          </div>
         </div>
-        <!-- /.box-body -->
-        <div class="box-footer">
-        </div>
-        <!-- /.box-footer-->
       </div>
-      <!-- /.box -->
+     
 
     </section>
     <!-- /.content -->

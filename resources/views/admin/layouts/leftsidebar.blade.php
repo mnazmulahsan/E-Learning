@@ -23,8 +23,6 @@
             <li class=""><a href="{{ route('event.index')}}"><i class="fa fa-circle-o"></i>Event</a></li>
             <li class=""><a href="{{ route('course.index')}}"><i class="fa fa-circle-o"></i>Course</a></li>
             <li class=""><a href="{{ route('skill.index')}}"><i class="fa fa-circle-o"></i>Skill</a></li>
-            <li class=""><a href=""><i class="fa fa-circle-o"></i>User List</a></li>
-            <li class=""><a href=""><i class="fa fa-circle-o"></i>Instructor List</a></li>
            
             
           
