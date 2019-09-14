@@ -11,16 +11,7 @@
           <p>Captain</p>
         </div>
       </div>
-      <!-- search form -->
-      <form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
-          <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-        </div>
-      </form>
+      
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
@@ -30,7 +21,9 @@
             <li class=""><a href="{{ route('icourse.create')}}"><i class="fa fa-circle-o"></i>Add New Course</a></li>
             <li class=""><a href="{{ route('icourse.index')}}"><i class="fa fa-circle-o"></i>Manage Courses</a></li> 
             <li class=""><a href="{{ route('video.create')}}"><i class="fa fa-circle-o"></i>Add New Video</a></li>
-            <li class=""><a href="{{ route('video.index')}}"><i class="fa fa-circle-o"></i>Manage Videos</a></li> 
+            <li class=""><a href="{{ route('video.index')}}"><i class="fa fa-circle-o"></i>Manage Videos</a></li>
+            <li class=""><a href="{{ route('quiz.index')}}"><i class="fa fa-circle-o"></i>Quizzes</a></li>
+            <li class=""><a href="{{ route('all',Auth::user()->id)}}"><i class="fa fa-circle-o"></i>Quiz Answers</a></li>
 
         </li>  
       </ul>

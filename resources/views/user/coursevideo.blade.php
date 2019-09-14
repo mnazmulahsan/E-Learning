@@ -78,8 +78,9 @@
     </div>			
 </div>
 
-<div><center><h2>All Videos <span class="btn btn-primary">{{$course->title}}</span></h2></center>
+<div><center><h2>All Videos <span class="btn btn-primary">{{$course->title}}</span><a href="{{route('user.quizzes',$course->id)}}" class="btn btn-danger">Give Quizzes</a><span></span></h2></center>
             <br></div>
+            
 
 
 <div class="container">
@@ -105,6 +106,8 @@
                          <a href='https://videojs.com/html5-video-support/' target='_blank'>supports HTML5 video</a>
                        </p>
                      </video>
+
+                     
                 </div>
 
 			

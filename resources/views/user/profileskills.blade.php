@@ -9,10 +9,9 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Vcard - Resume CV &amp; Vcard Template</title>
+    <title>{{Auth::user()->name}}'s Skills</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="/user/img/core-img/favicon.ico">
 
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="/user/styles/style.css">
@@ -31,20 +30,13 @@
 
             <!-- Contact Button -->
             <div class="horizontal-contact-btn">
-                <a href="#" class="btn vcard-btn contact-btn"><i class="fa fa-envelope-o"></i><span>Have a nice day!</span></a>
+                <a href="{{'/'}}" class="btn vcard-btn contact-btn"><i class="fa fa-envelope-o"></i><span>Back To The HomePage</span></a>
             </div>
 
 
             <!-- Header Area -->
             <header class="header_area">
-                <!-- Logo -->
-                <div class="logo d-flex justify-content-center align-items-center">
-                    <a href="index-horizontal-about.html"><img src="/user/img/core-img/logo2.png" alt=""></a>
-                    <!-- Navbar Toggle -->
-                    <div class="nav-toggle">
-                        <i class="fa fa-bars"></i>
-                    </div>
-                </div>
+                
 
                 <!-- Menu -->
                 <ul class="vcard-nav">
@@ -120,10 +112,7 @@
                     </div>
                     <!-- ##### Skilss Area End ##### -->
 
-                    <p class="mt-5"><a href="#"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-
+                    
                 </div>
             </div>
 

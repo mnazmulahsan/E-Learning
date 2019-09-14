@@ -99,7 +99,13 @@
                                 <div class="course_image"><img src="images/course_4.jpg" alt=""></div>
                                 <div class="course_body">
                                     <h3 class="course_title"><a href="{{ url('/coursedetails/'.$all->id) }}">{{$all->title}}</a></h3>
-                                    <div class="course_teacher">{{$all->created_by}}</div>
+                                    <div class="course_teacher">
+                                        @foreach($all->instructors as $ins)
+
+                                          {{$ins->name}}
+
+                                        @endforeach
+                                    </div>
                                     <div class="course_text">
                                         <p>{{$all->description}}</p>
                                     </div>

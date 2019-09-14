@@ -11,6 +11,9 @@ use App\Uabout;
 use App\Video;
 use App\skill;
 use App\userskill;
+use App\Quiz;
+use App\Mark;
+use App\Answer;
 use Auth;
 use Session;
 
@@ -36,6 +39,50 @@ class UserController extends Controller
        $vdo = $course->videos;
        return view('user.coursevideo',compact('vdo','cat','course'));
     }
+
+    public function quizzes($id)
+    {
+       $cat = category::whereNull('parent_id')->get();
+       $course = course::find($id);
+       $quizzes = $course->quizzes;
+       return view('user.quizzes',compact('quizzes','cat','course'));
+    }
+    public function checkMarks($id)
+    {
+      $cat = category::whereNull('parent_id')->get();
+      $marks = Mark::where('user_id',$id)->get();
+      return view('user.checkmarks',compact('cat','marks'));
+    }
+
+    public function answer($id)
+    {
+       $cat = category::whereNull('parent_id')->get();
+       $question = Quiz::find($id);
+       return view('user.answer',compact('cat','question'));
+    }
+    public function answersubmit(Request $request,$id)
+    {
+      $this->validate($request,[
+
+          'answer' => 'required',
+        ]);
+        
+        $quiz = Quiz::find($id);
+        $answer = new Answer;
+        $answer->quiz_id = $id;
+        $answer->user_id = Auth::user()->id;
+        $answer->title = $quiz->title;
+        $answer->question = $quiz->question;
+        $answer->answer = $request->answer;
+        $answer->course_id = $quiz->course_id;
+        $answer->instructor_id = $quiz->instructor_id;
+        $answer->save();
+        return redirect(route('user.quizzes',$quiz->course_id));
+
+    }
+
+
+
 
     public function enrolledCourse($id)
     {
@@ -109,7 +156,7 @@ class UserController extends Controller
           'git' => 'required'
         ]);
         // return $request->all();
-        $update = Uabout::
+        $update = Uabout::find($id);
         $update->fullName = $request->fname;
         $update->designation = $request->desig;
         $update->address = $request->add;

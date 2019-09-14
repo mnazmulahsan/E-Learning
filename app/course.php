@@ -27,6 +27,11 @@ class course extends Model
         return $this->hasMany(Video::class);
     }
 
+    public function quizzes()
+    {
+        return $this->hasMany(Quiz::class);
+    }
+
     // This function is for showing videos after enrollment and and login
 
     public function enrolled($c_id, $u_id){

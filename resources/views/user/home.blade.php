@@ -145,7 +145,13 @@
                     <div class="course_image"><img src="images/course_1.jpg" alt=""></div>
                     <div class="course_body">
                         <h3 class="course_title"><a href="{{ url('/coursedetails/'.$cor->id) }}">{{$cor->title}}</a></h3>
-                        <div class="course_teacher">{{$cor->created_by}}</div>
+                        <div class="course_teacher">
+                            @foreach($cor->instructors as $ins)
+
+                                 {{$ins->name}}
+
+                               @endforeach
+                        </div>
                         <div class="course_text">
                             <p>{{ substr($cor->description, 0, 40)}} {{ strlen($cor->description) > 40 ? "..." : "" }}</p>
                         </div>

@@ -29,7 +29,7 @@
 
         <div class="box-body">
           
-            <a class="col-lg-offset-5 btn btn-primary" href="{{ route('course.create')}}">Add New course</a>
+            <a class="col-lg-offset-5 btn btn-primary" href="">All Courses</a>
 
         </div>
 

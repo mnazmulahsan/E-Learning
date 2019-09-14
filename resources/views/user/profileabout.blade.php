@@ -12,10 +12,11 @@
     <title>{{$user->name}}'s Profile</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="/user/img/core-img/favicon.ico">
 
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="/user/styles/style.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
 
 </head>
 
@@ -26,23 +27,15 @@
     </div>
 
     <div class="vcard-main-wrapper">
-        <div class="vcard-content-wrapper bg-img" style="background-image: url(/user/img/bg-img/cutted.jpg);">
+        <div class="vcard-content-wrapper bg-img" style="background-image: url(/user/img/bg-img/bg5.jpg);">
 
             <!-- Contact Button -->
             <div class="horizontal-contact-btn">
-                <a href="#" class="btn vcard-btn contact-btn"><i class="fa fa-envelope-o"></i><span>Have a nice day!</span></a>
+                <a href="{{'/'}}" class="btn vcard-btn contact-btn"><i class="fa fa-envelope-o"></i><span>Back To The HomePage</span></a>
             </div>
 
             <!-- Header Area -->
             <header class="header_area">
-                <!-- Logo -->
-                <div class="logo d-flex justify-content-center align-items-center">
-                    <a href="index-horizontal-about.html"><img src="/user/img/core-img/logo.png" alt=""></a>
-                    <!-- Navbar Toggle -->
-                    <div class="nav-toggle">
-                        <i class="fa fa-bars"></i>
-                    </div>
-                </div>
 
                 <!-- Menu -->
                 <ul class="vcard-nav">
@@ -138,6 +131,8 @@
     <script src="/user/js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="/user/js/active.js"></script>
+
+
 
 </body>
 

@@ -91,7 +91,13 @@
     
                         <div class="course_info_item">
                             <div class="course_info_title">Teacher:</div>
-                            <div class="course_info_text"><a href="#">{{$cour->created_by}}</a></div>
+                            <div class="course_info_text"><a href="#">
+                                @foreach($cour->instructors as $ins)
+
+                                  {{$ins->name}}
+
+                                @endforeach
+                            </a></div>
                         </div>
                         <div class="course_info_item">
                             <div class="course_info_title">Categories:</div>
@@ -141,12 +147,14 @@
                     <a class="btn btn-danger" href="{{route('user.video', $cour->id)}}">See Course Materials</a>
                 </div>
             @else
-
                 <div>
                     <a href="{{ route('enroll', $cour->id)}}" class="btn btn-primary">First Enroll</a>
                 </div>
             @endif
-                
+        @else 
+           <div>
+               <a href="{{ route('login') }}" class="btn btn-danger">Please Login To See Course Materials</a>
+           </div>      
         @endif
               
             </div>

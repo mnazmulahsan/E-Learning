@@ -137,7 +137,9 @@ class InstructorController extends Controller
      */
     public function destroy($id)
     {
-        course::where('id',$id)->delete();
+        $course = course::find($id);
+        $course->instructors()->detach();
+        $course->delete();
         return redirect()->back();
     }
 }

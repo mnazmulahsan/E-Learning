@@ -1,15 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 
 Route::get('/','HController@index');
@@ -24,6 +14,11 @@ Route::get('/enroll/{id}','UserController@enroll')->name('enroll');
 Route::get('/enrolled/{id}','UserController@enrolledCourse')->name('enrolled');
 //video showing
 Route::get('/course/video/{id}','UserController@videos')->name('user.video');
+//Quizzes
+Route::get('/course/video/quizzes/{id}','UserController@quizzes')->name('user.quizzes');
+Route::get('/course/video/quizzes/answer/{id}','UserController@answer')->name('user.answer');
+Route::post('/course/video/quizzes/answer/{id}','UserController@answersubmit')->name('user.answer');
+Route::get('/course/video/quizzes/marks/{id}','UserController@checkMarks')->name('user.marks');
 //Route::get('/course/video/download/{id}','UserController@download')->name('user.download');
 //user profile management
 Route::get('/user/about/{id}','UserController@about')->name('user.about');
@@ -69,8 +64,19 @@ Route::group(['namespace' => 'Instructor'], function(){
    //Instructor route
    Route::resource('instructor/icourse','InstructorController');
    Route::resource('instructor/video','InstructorVideoController');
+   Route::resource('instructor/quiz','InstructorQuizController');
+   Route::get('instructor/quiz/answers/{id}', 'AnswerController@all')->name('all');
+   Route::get('instructor/quiz/answer/{id}', 'AnswerController@single')->name('single');
+   Route::post('instructor/quiz/answer/{id}', 'AnswerController@singlesubmit')->name('single');
+
+
+
 
 });
+
+//answer review
+
+
 
 
 

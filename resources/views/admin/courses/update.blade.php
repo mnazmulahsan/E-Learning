@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('Instructor.layouts.app')
 
 @section('headerSection')
 
@@ -56,11 +56,6 @@
                        </div>
 
                        <div class="form-group">
-                        <label for="author">Author</label>
-                        <input type="text" class="form-control" id="author" name="author" value="{{ $cor->created_by}}">
-                       </div>
-
-                       <div class="form-group">
                         <label for="descr">Description</label>
                         <input type="text" class="form-control" id="descr" name="descr" value="{{ $cor->description}}">
                        </div>
@@ -74,28 +69,23 @@
                         <label for="tar_audi">Targeted Audience</label>
                         <input type="text" class="form-control" id="tar_audi" name="tar_audi" value="{{ $cor->tar_audi}}">
                        </div>
-
-                       <div class="form-group">
-                        <label for="Playlist">Playlist Link</label>
-                        <input type="text" class="form-control" id="playlist" name="playlist" value="{{ $cor->playlist}}">
-                       </div>
   
-        					    <select  style="width: 506px; height:35px" class="productcategory" id="prod_cat_id" name="   catt">					  	
-        						  	<option value="0" disabled="true" selected="true">-Select-Category-</option>
-        						  	@foreach($prod as $cat)
-        						  		<option value="{{$cat->id}}" id="maincat">{{$cat->category_name}}</option>
-        						  	@endforeach
-        						  </select>
+                      <select  style="width: 506px; height:35px" class="productcategory" id="prod_cat_id" name="   catt">             
+                        <option value="0" disabled="true" selected="true">-Select-Category-</option>
+                        @foreach($prod as $cat)
+                          <option value="{{$cat->id}}" id="maincat">{{$cat->category_name}}</option>
+                        @endforeach
+                      </select>
                      
-        						  <select  style="width: 506px; height:35px" class="productname" name="subcatt">
-        						  	<option value="0" disabled="true"  selected="true" id="subcat">-Select-SubCategory-</option>
-        						  </select>
+                      <select  style="width: 506px; height:35px" class="productname" name="subcatt">
+                        <option value="0" disabled="true"  selected="true" id="subcat">-Select-SubCategory-</option>
+                      </select>
                         
-        						  
-        						  <select  style="width: 506px; height:35px" class="product" name="subsubcatt">
+                      
+                      <select  style="width: 506px; height:35px" class="product" name="subsubcatt">
 
-        						  	<option value="0" disabled="true"  selected="true" id="subsubcat">-Select-SubSubCategory-</option>
-        						  </select>
+                        <option value="0" disabled="true"  selected="true" id="subsubcat">-Select-SubSubCategory-</option>
+                      </select>
               
                       <div class="form-group">
                        <button type="submit" class="btn btn-primary" id="saveBtn">Add</button>
@@ -120,10 +110,10 @@
  <script src="{{ asset('/admint/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
  
- 	<script type="text/javascript">
+  <script type="text/javascript">
 
 
-	$(document).ready(function(){
+  $(document).ready(function(){
 
     $.ajaxSetup({
               headers: {
@@ -132,63 +122,63 @@
         });
 
 
-		$(document).on('change','.productcategory',function(){
+    $(document).on('change','.productcategory',function(){
 
-			var cat_id=$(this).val();
-			var div=$(this).parent();
+      var cat_id=$(this).val();
+      var div=$(this).parent();
 
-			var op=" ";
+      var op=" ";
 
-			$.ajax({
-				type:'get',
-				url:'{!!URL::to('findProductName')!!}',
-				data:{'id':cat_id},
-				success:function(data){
-					
-					op+='<option value="0" selected disabled>Select SubCategory</option>';
-					for(var i=0;i<data.length;i++){
-					op+='<option value="'+data[i].id+'">'+data[i].category_name+'</option>';
-				   }
+      $.ajax({
+        type:'get',
+        url:'{!!URL::to('findProductName')!!}',
+        data:{'id':cat_id},
+        success:function(data){
+          
+          op+='<option value="0" selected disabled>Select SubCategory</option>';
+          for(var i=0;i<data.length;i++){
+          op+='<option value="'+data[i].id+'">'+data[i].category_name+'</option>';
+           }
 
-				   div.find('.productname').html(" ");
-				   div.find('.productname').append(op);
-				},
-				error:function(){
+           div.find('.productname').html(" ");
+           div.find('.productname').append(op);
+        },
+        error:function(){
 
-				}
-			});
-		});
+        }
+      });
+    });
 
-		
+    
 
 
-		$(document).on('change','.productname',function(){
-			
+    $(document).on('change','.productname',function(){
+      
 
-			var cat_id=$(this).val();
-			var div=$(this).parent();
+      var cat_id=$(this).val();
+      var div=$(this).parent();
 
-			var op=" ";
+      var op=" ";
 
-			$.ajax({
-				type:'get',
-				url:'{!!URL::to('findProductName')!!}',
-				data:{'id':cat_id},
-				success:function(data){
-					
-					op+='<option value="0" selected disabled>Select SubSubCategory</option>';
-					for(var i=0;i<data.length;i++){
-					op+='<option value="'+data[i].id+'">'+data[i].category_name+'</option>';
-				   }
+      $.ajax({
+        type:'get',
+        url:'{!!URL::to('findProductName')!!}',
+        data:{'id':cat_id},
+        success:function(data){
+          
+          op+='<option value="0" selected disabled>Select SubSubCategory</option>';
+          for(var i=0;i<data.length;i++){
+          op+='<option value="'+data[i].id+'">'+data[i].category_name+'</option>';
+           }
 
-				   div.find('.product').html(" ");
-				   div.find('.product').append(op);
-				},
-				error:function(){
+           div.find('.product').html(" ");
+           div.find('.product').append(op);
+        },
+        error:function(){
 
-				}
-			});
-		});
+        }
+      });
+    });
 
   });
 

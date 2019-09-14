@@ -7,10 +7,10 @@ use App\category;
 
 class TestController extends Controller
 {
-	public function __construct()
-	{
-	    $this->middleware('auth:admin');
-	}
+	// public function __construct()
+	// {
+	//     $this->middleware('auth:instructor');
+	// }
 	
     public function prodfunct(){
 

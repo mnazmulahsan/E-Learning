@@ -32,8 +32,8 @@ class courseController extends Controller
      */
     public function create()
     {  
-        $prod=category::whereNull('parent_id')->get();
-        return view('admin.courses.add',compact('prod'));
+        // $prod=category::whereNull('parent_id')->get();
+        // return view('admin.courses.add',compact('prod'));
     }
 
     /**
@@ -44,32 +44,32 @@ class courseController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
+        // $this->validate($request,[
 
-          'title' => 'required',
-          'subtitle' => 'required',
-          'author' => 'required',
-          'descr' => 'required',
-          'requirement' => 'required',
-          'tar_audi' => 'required',
-          'playlist' => 'required'
-        ]);
-        // return $request->all();
-        $cours = new course;
-        $cours->title = $request->title;
-        $cours->subTitle = $request->subtitle;
-        $cours->created_by = $request->author;
-        $cours->description = $request->descr;
-        $cours->requirement = $request->requirement;
-        $cours->tar_audi = $request->tar_audi;
-        $cours->playlist = $request->playlist;
-        $cours->category_id = $request->catt;
-        $cours->subcategory_id = $request->subcatt;
-        $cours->subsubcategory_id = $request->subsubcatt;
+        //   'title' => 'required',
+        //   'subtitle' => 'required',
+        //   'author' => 'required',
+        //   'descr' => 'required',
+        //   'requirement' => 'required',
+        //   'tar_audi' => 'required',
+        //   'playlist' => 'required'
+        // ]);
+        // // return $request->all();
+        // $cours = new course;
+        // $cours->title = $request->title;
+        // $cours->subTitle = $request->subtitle;
+        // $cours->created_by = $request->author;
+        // $cours->description = $request->descr;
+        // $cours->requirement = $request->requirement;
+        // $cours->tar_audi = $request->tar_audi;
+        // $cours->playlist = $request->playlist;
+        // $cours->category_id = $request->catt;
+        // $cours->subcategory_id = $request->subcatt;
+        // $cours->subsubcategory_id = $request->subsubcatt;
 
-        $cours->save();
+        // $cours->save();
 
-        return redirect(route('course.index'));
+        // return redirect(route('course.index'));
     }
 
     /**
@@ -113,27 +113,23 @@ class courseController extends Controller
 
           'title' => 'required',
           'subtitle' => 'required',
-          'author' => 'required',
           'descr' => 'required',
           'requirement' => 'required',
           'tar_audi' => 'required',
-          'playlist' => 'required'
         ]);
         // return $request->all();
+
         $cours = course::find($id);
         $cours->title = $request->title;
         $cours->subTitle = $request->subtitle;
-        $cours->created_by = $request->author;
         $cours->description = $request->descr;
         $cours->requirement = $request->requirement;
         $cours->tar_audi = $request->tar_audi;
-        $cours->playlist = $request->playlist;
         $cours->category_id = $request->catt;
         $cours->subcategory_id = $request->subcatt;
         $cours->subsubcategory_id = $request->subsubcatt;
-
+        
         $cours->save();
-
         return redirect(route('course.index'));
     }
 
@@ -145,8 +141,9 @@ class courseController extends Controller
      */
     public function destroy($id)
     {
-        course::where('id',$id)->delete();
-
+        $course = course::find($id);
+        $course->instructors()->detach();
+        $course->delete();
         return redirect()->back();
     }
 }
